@@ -1,334 +1,241 @@
 #!/usr/bin/env python3
-"""
-generate_dashboard.py — Reads data/travel_daily.json and generates docs/index.html.
+"""全球旅游热点看板生成器 v5 - 标签多元化 + 航线热点限制"""
+import json, argparse
+from datetime import datetime, timedelta
 
-Features:
-  - 25 countries × 10 articles grid
-  - 6 category badges with counts
-  - Historical calendar (from dates in JSON)
-  - Responsive design with dark/light mode
-  - Auto-generated from data (no manual editing)
-"""
-
-import json
-import sys
-import logging
-from datetime import datetime
-from pathlib import Path
-
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(message)s",
-    datefmt="%H:%M:%S"
-)
-log = logging.getLogger("dashboard")
-
-BASE_DIR = Path(__file__).resolve().parent.parent
-DATA_FILE = BASE_DIR / "data" / "travel_daily.json"
-OUTPUT_FILE = BASE_DIR / "docs" / "index.html"
-
-CATEGORY_META = {
-    "visa":    {"label": "签证政策", "emoji": "🛂", "color": "#e74c3c"},
-    "aviation": {"label": "航空交通", "emoji": "✈️", "color": "#3498db"},
-    "tourism": {"label": "旅游推广", "emoji": "🏝️", "color": "#27ae60"},
-    "digital": {"label": "数字便利", "emoji": "📱", "color": "#9b59b6"},
-    "event":   {"label": "大型活动", "emoji": "🎪", "color": "#f39c12"},
-    "policy":  {"label": "法规政策", "emoji": "📋", "color": "#1abc9c"},
-}
-
-FLAG_EMOJI = {
-    "Thailand": "🇹🇭", "Japan": "🇯🇵", "South Korea": "🇰🇷", "Singapore": "🇸🇬",
-    "Vietnam": "🇻🇳", "Indonesia": "🇮🇩", "Malaysia": "🇲🇾", "Philippines": "🇵🇭",
-    "China": "🇨🇳", "India": "🇮🇳", "United States": "🇺🇸", "United Kingdom": "🇬🇧",
-    "France": "🇫🇷", "Germany": "🇩🇪", "Spain": "🇪🇸", "Italy": "🇮🇹",
-    "Australia": "🇦🇺", "New Zealand": "🇳🇿", "Canada": "🇨🇦", "Mexico": "🇲🇽",
-    "UAE": "🇦🇪", "Turkey": "🇹🇷", "Egypt": "🇪🇬", "Brazil": "🇧🇷", "South Africa": "🇿🇦"
-}
-
-
-def load_data() -> dict:
-    if not DATA_FILE.exists():
-        log.error(f"Data file not found: {DATA_FILE}")
-        sys.exit(1)
-    with open(DATA_FILE, "r", encoding="utf-8") as f:
-        data = json.load(f)
-    log.info(f"Loaded data: today={data.get('today')}, dates={len(data.get('dates', {}))}")
-    return data
-
-
-def generate_calendar_html(dates: dict) -> str:
-    """Generate HTML for the historical calendar section."""
-    if not dates:
-        return '<p class="empty">暂无历史数据</p>'
-
-    sorted_dates = sorted(dates.keys(), reverse=True)[:30]  # Show last 30 days
-    rows = ""
-    for d in sorted_dates:
-        day_data = dates[d]
-        countries = day_data.get("countries", {})
-        total = sum(len(arts) for arts in countries.values())
-        fetch_time = day_data.get("fetch_time", "")
-        try:
-            ft = datetime.fromisoformat(fetch_time.replace("Z", "+00:00")).strftime("%H:%M UTC")
-        except Exception:
-            ft = "—"
-        rows += f"""
-        <tr>
-            <td><strong>{d}</strong></td>
-            <td>{total} 条</td>
-            <td>{len(countries)} 国</td>
-            <td>{ft}</td>
-            <td>
-                <button class="btn-small" onclick="showDate('{d}')">查看</button>
-            </td>
-        </tr>"""
-
-    return f"""
-    <table class="cal-table">
-        <thead>
-            <tr><th>日期</th><th>文章数</th><th>国家数</th><th>采集时间</th><th>操作</th></tr>
-        </thead>
-        <tbody>{rows}</tbody>
-    </table>"""
-
-
-def generate_country_card(country: str, articles: list) -> str:
-    """Generate HTML card for a single country."""
-    flag = FLAG_EMOJI.get(country, "🌐")
-
-    # Category counts
-    cat_counts = {}
-    for a in articles:
-        cat = a.get("category", "policy")
-        cat_counts[cat] = cat_counts.get(cat, 0) + 1
-
-    cat_badges = ""
-    for cat_key, meta in CATEGORY_META.items():
-        count = cat_counts.get(cat_key, 0)
-        if count > 0:
-            cat_badges += f'<span class="badge" style="background:{meta["color"]}">{meta["emoji"]} {count}</span> '
-
-    article_list = ""
-    for a in articles:
-        cat_meta = CATEGORY_META.get(a.get("category", "policy"), CATEGORY_META["policy"])
-        pub = a.get("published", "")[:10] if a.get("published") else ""
-        source = a.get("source", "")
-        title = a.get("title", "无标题")
-        url = a.get("url", "#")
-        summary = a.get("summary", "")[:120]
-
-        article_list += f"""
-        <div class="article-item">
-            <span class="cat-dot" style="background:{cat_meta['color']}" title="{cat_meta['label']}"></span>
-            <div class="article-content">
-                <a href="{url}" target="_blank" rel="noopener" class="article-title">{title}</a>
-                <div class="article-meta">
-                    <span>{source}</span>
-                    {f' · <span>{pub}</span>' if pub else ''}
-                </div>
-                {f'<p class="article-summary">{summary}</p>' if summary else ''}
-            </div>
-        </div>"""
-
-    return f"""
-    <div class="country-card" id="country-{country.replace(' ', '-').lower()}">
-        <div class="card-header">
-            <h3>{flag} {country}</h3>
-            <div class="cat-badges">{cat_badges}</div>
-        </div>
-        <div class="card-body">
-            {article_list if article_list else '<p class="empty">今日暂无新闻</p>'}
-        </div>
-    </div>"""
-
-
-def generate_html(data: dict) -> str:
-    """Generate the complete dashboard HTML."""
-    today = data.get("today", "未知")
-    window = data.get("window", "")
-    dates = data.get("dates", {})
-    today_data = dates.get(today, {})
-    countries_data = today_data.get("countries", {})
-
-    # Total stats
-    total_articles = sum(len(arts) for arts in countries_data.values())
-    total_countries = len(countries_data)
-
-    # Category totals across all countries
-    global_cats = {}
-    for articles in countries_data.values():
-        for a in articles:
-            cat = a.get("category", "policy")
-            global_cats[cat] = global_cats.get(cat, 0) + 1
-
-    cat_summary_html = ""
-    for cat_key, meta in CATEGORY_META.items():
-        count = global_cats.get(cat_key, 0)
-        cat_summary_html += f'<span class="global-badge" style="border-color:{meta["color"]}">{meta["emoji"]} {meta["label"]}: <strong>{count}</strong></span> '
-
-    # Country cards
-    country_cards = ""
-    for country in sorted(countries_data.keys()):
-        country_cards += generate_country_card(country, countries_data[country])
-
-    calendar_html = generate_calendar_html(dates)
-
-    now_str = datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
-
-    return f"""<!DOCTYPE html>
+HTML_TEMPLATE = r'''<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>全球旅游动态看板 — {today}</title>
-    <style>
-        :root {{
-            --bg: #f0f2f5; --card-bg: #fff; --text: #1a1a2e; --text-muted: #6b7280;
-            --border: #e5e7eb; --accent: #4f46e5; --shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }}
-        @media (prefers-color-scheme: dark) {{
-            :root {{
-                --bg: #0f172a; --card-bg: #1e293b; --text: #e2e8f0; --text-muted: #94a3b8;
-                --border: #334155; --accent: #818cf8; --shadow: 0 1px 3px rgba(0,0,0,0.4);
-            }}
-        }}
-        * {{ margin: 0; padding: 0; box-sizing: border-box; }}
-        body {{
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
-            background: var(--bg); color: var(--text); line-height: 1.6;
-        }}
-        .container {{ max-width: 1400px; margin: 0 auto; padding: 1rem; }}
-        header {{
-            background: linear-gradient(135deg, #4f46e5, #7c3aed);
-            color: white; padding: 2rem; border-radius: 16px; margin-bottom: 1.5rem;
-            text-align: center;
-        }}
-        header h1 {{ font-size: 2rem; margin-bottom: 0.5rem; }}
-        header .meta {{ opacity: 0.85; font-size: 0.95rem; }}
-        .stats-bar {{
-            display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center;
-            margin: 1rem 0;
-        }}
-        .global-badge {{
-            background: var(--card-bg); padding: 0.4rem 0.8rem; border-radius: 20px;
-            border: 2px solid; font-size: 0.85rem;
-        }}
-        .country-grid {{
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
-            gap: 1rem;
-        }}
-        .country-card {{
-            background: var(--card-bg); border-radius: 12px;
-            box-shadow: var(--shadow); overflow: hidden;
-            transition: transform 0.2s;
-        }}
-        .country-card:hover {{ transform: translateY(-2px); }}
-        .card-header {{
-            padding: 1rem; border-bottom: 1px solid var(--border);
-            display: flex; justify-content: space-between; align-items: center;
-            flex-wrap: wrap; gap: 0.5rem;
-        }}
-        .card-header h3 {{ font-size: 1.1rem; }}
-        .cat-badges {{ display: flex; flex-wrap: wrap; gap: 0.3rem; }}
-        .badge {{
-            color: white; padding: 0.15rem 0.5rem; border-radius: 10px;
-            font-size: 0.75rem; font-weight: 600;
-        }}
-        .card-body {{ padding: 0.75rem; max-height: 500px; overflow-y: auto; }}
-        .article-item {{
-            display: flex; gap: 0.5rem; padding: 0.5rem 0;
-            border-bottom: 1px solid var(--border);
-        }}
-        .article-item:last-child {{ border-bottom: none; }}
-        .cat-dot {{
-            width: 8px; height: 8px; border-radius: 50%;
-            margin-top: 0.5rem; flex-shrink: 0;
-        }}
-        .article-content {{ flex: 1; min-width: 0; }}
-        .article-title {{
-            color: var(--accent); text-decoration: none; font-weight: 500;
-            font-size: 0.9rem; display: block;
-        }}
-        .article-title:hover {{ text-decoration: underline; }}
-        .article-meta {{
-            color: var(--text-muted); font-size: 0.78rem; margin-top: 0.2rem;
-        }}
-        .article-summary {{
-            color: var(--text-muted); font-size: 0.82rem; margin-top: 0.3rem;
-            line-height: 1.4;
-        }}
-        .empty {{ color: var(--text-muted); font-style: italic; padding: 1rem; text-align: center; }}
-        /* Calendar section */
-        .calendar-section {{
-            background: var(--card-bg); border-radius: 12px;
-            box-shadow: var(--shadow); padding: 1.5rem; margin-top: 1.5rem;
-        }}
-        .calendar-section h2 {{ margin-bottom: 1rem; font-size: 1.3rem; }}
-        .cal-table {{ width: 100%; border-collapse: collapse; font-size: 0.9rem; }}
-        .cal-table th, .cal-table td {{
-            padding: 0.6rem; text-align: left; border-bottom: 1px solid var(--border);
-        }}
-        .cal-table th {{ background: var(--bg); font-weight: 600; }}
-        .btn-small {{
-            background: var(--accent); color: white; border: none;
-            padding: 0.3rem 0.8rem; border-radius: 6px; cursor: pointer;
-            font-size: 0.8rem;
-        }}
-        .btn-small:hover {{ opacity: 0.85; }}
-        footer {{
-            text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.85rem;
-        }}
-        @media (max-width: 768px) {{
-            .country-grid {{ grid-template-columns: 1fr; }}
-            header h1 {{ font-size: 1.5rem; }}
-        }}
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>全球旅游热点看板 · {{DATE}}</title>
+<style>
+:root{--p:#2563eb;--pl:#dbeafe;--bg:#f1f5f9;--c:#fff;--t:#0f172a;--t2:#475569;--t3:#94a3b8;--b:#e2e8f0;--r:10px;--s:0 1px 3px rgba(0,0,0,.06);--sm:0 4px 12px rgba(0,0,0,.08)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--t);line-height:1.6;padding:20px}
+.w{max-width:1000px;margin:0 auto}
+.hd{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;margin-bottom:16px}
+.hd h1{font-size:20px;font-weight:700}.sub{font-size:12px;color:var(--t2);margin-top:2px}
+.badge{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;background:#d1fae5;color:#065f46}
+.badge .dot{width:6px;height:6px;border-radius:50%;background:#10b981}
+.cal-wrap{background:var(--c);border-radius:var(--r);padding:14px 16px;margin-bottom:16px;box-shadow:var(--s);border:1px solid var(--b)}
+.cal-title{font-size:13px;font-weight:600;color:var(--t2);margin-bottom:10px}
+.cal-strip{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px}
+.cal-day{min-width:52px;padding:8px 6px;border-radius:8px;text-align:center;cursor:pointer;border:1.5px solid var(--b);transition:.15s;user-select:none;flex-shrink:0}
+.cal-day:hover{border-color:var(--p);background:var(--pl)}
+.cal-day.active{background:var(--p);color:#fff;border-color:var(--p)}
+.cal-day.today{border-color:#10b981;border-width:2px}
+.cal-day .dow{font-size:10px;color:var(--t3);margin-bottom:2px}
+.cal-day.active .dow{color:rgba(255,255,255,.8)}
+.cal-day .dn{font-size:16px;font-weight:700}
+.cal-day .dc{font-size:9px;color:var(--t3);margin-top:1px}
+.cal-day.active .dc{color:rgba(255,255,255,.8)}
+.sg{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:16px}
+.st{background:var(--c);border-radius:var(--r);padding:14px;text-align:center;box-shadow:var(--s);border:1px solid var(--b)}
+.st .v{font-size:24px;font-weight:700;color:var(--p)}.st .l{font-size:11px;color:var(--t2);margin-top:2px}
+.st.boom .v{color:#ef4444}.st.hot .v{color:#f97316}.st.new .v{color:#10b981}
+.si{width:100%;padding:8px 12px;border:1px solid var(--b);border-radius:8px;font-size:13px;outline:none;margin-bottom:10px}
+.si:focus{border-color:var(--p);box-shadow:0 0 0 3px rgba(37,99,235,.1)}
+.ch{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+.cp{padding:5px 12px;border-radius:20px;border:1px solid var(--b);background:#fff;cursor:pointer;font-size:12px;transition:.15s;user-select:none}
+.cp:hover{border-color:var(--p)}.cp.on{background:var(--pl);border-color:var(--p);color:var(--p);font-weight:600}
+.legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;padding:8px 12px;background:#f8fafc;border-radius:8px;border:1px solid var(--b)}
+.legend-item{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--t2)}
+.legend-dot{width:8px;height:8px;border-radius:50%}
+.cl{display:flex;flex-direction:column;gap:8px}
+.cc{background:var(--c);border-radius:var(--r);border:1px solid var(--b);box-shadow:var(--s);overflow:hidden;transition:.2s}
+.cc:hover{box-shadow:var(--sm)}
+.chd{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;cursor:pointer;user-select:none}
+.chd:hover{background:#f8fafc}.chd .left{display:flex;align-items:center;gap:10px}
+.cf{font-size:22px;line-height:1}.cn{font-size:14px;font-weight:600}
+.ct{font-size:11px;color:var(--t2);background:var(--bg);padding:2px 8px;border-radius:10px}
+.ar{font-size:12px;color:var(--t3);transition:transform .2s}.cc.open .ar{transform:rotate(180deg)}
+.cb{max-height:0;overflow:hidden;transition:max-height .3s ease}.cc.open .cb{max-height:10000px}
+.ev{padding:12px 16px;border-top:1px solid #f1f5f9;display:flex;gap:12px;cursor:pointer;transition:.15s;position:relative}
+.ev:first-child{border-top:none}.ev:hover{background:#f8fafc}
+.er{width:28px;height:28px;min-width:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0;margin-top:2px}
+.r1{background:linear-gradient(135deg,#f59e0b,#f97316)}.r2{background:linear-gradient(135deg,#94a3b8,#64748b)}.r3{background:linear-gradient(135deg,#d97706,#b45309)}.rn{background:var(--p)}
+.eb{flex:1;min-width:0}.et{font-size:14px;font-weight:600;line-height:1.4;margin-bottom:4px}
+.tg{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:6px}
+.tc{font-size:10px;padding:2px 8px;border-radius:10px;font-weight:500}
+.tc-cat{background:#ede9fe;color:#5b21b6}.tc-sc{background:#fef3c7;color:#92400e}
+.es{font-size:12px;color:var(--t2);line-height:1.7;margin-bottom:6px}
+.ei{font-size:11px;color:var(--p);background:var(--pl);padding:5px 10px;border-radius:6px;margin-bottom:6px;display:inline-block}
+.esr{font-size:10px;color:var(--t3)}
+.ev-tag{position:absolute;top:0;left:0;padding:2px 8px;font-size:10px;font-weight:700;color:#fff;border-radius:0 0 8px 0;z-index:1;line-height:1.4}
+.ev-tag.boom{background:linear-gradient(135deg,#ef4444,#dc2626)}
+.ev-tag.hot{background:linear-gradient(135deg,#f97316,#ea580c)}
+.ev-tag.new{background:linear-gradient(135deg,#10b981,#059669)}
+.mo{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(15,23,42,.5);z-index:1000;justify-content:center;align-items:flex-start;padding:40px 16px;overflow-y:auto;backdrop-filter:blur(4px)}.mo.show{display:flex}
+.mc{background:var(--c);border-radius:14px;max-width:640px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.15);overflow:hidden;animation:su .2s ease}
+@keyframes su{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.mt{padding:20px 24px 16px;border-bottom:1px solid var(--b);position:relative}
+.mx{position:absolute;top:14px;right:16px;width:30px;height:30px;border-radius:50%;border:none;background:var(--bg);cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;color:var(--t2)}.mx:hover{background:var(--b)}
+.mrr{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.mr{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff}
+.mct{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:14px;font-size:12px;font-weight:500;background:var(--pl);color:#1e40af}
+.mtl{font-size:18px;font-weight:700;line-height:1.4}
+.mb{padding:20px 24px}.ms{margin-bottom:18px}.ms:last-child{margin-bottom:0}
+.msl{font-size:12px;font-weight:600;color:var(--t3);margin-bottom:8px}
+.msc{font-size:14px;color:var(--t);line-height:1.8}
+.kf{padding:8px 12px;background:var(--pl);border-radius:8px;font-size:13px;color:#1e40af;font-weight:500;margin-bottom:6px}
+.mib{padding:12px 14px;background:#f0fdf4;border-radius:8px;border-left:3px solid #10b981;font-size:13px;line-height:1.7;color:#166534}
+.ma{padding:10px 14px;border-radius:8px;font-size:13px;display:flex;align-items:center;gap:8px}
+.ma.info{background:#eff6ff;color:#1e40af;border:1px solid #bfdbfe}
+.mf{padding:14px 24px;border-top:1px solid var(--b);display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:11px;color:var(--t3);flex-wrap:wrap}
+.ft{text-align:center;padding:14px;font-size:11px;color:var(--t3);border-top:1px solid var(--b);margin-top:8px}
+@media(max-width:600px){.sg{grid-template-columns:repeat(2,1fr)}.cal-day{min-width:44px}}
+</style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🌍 全球旅游动态看板</h1>
-            <div class="meta">
-                <div>📅 {today} &nbsp;|&nbsp; 窗口期: {window}</div>
-                <div>共 <strong>{total_articles}</strong> 条新闻 · <strong>{total_countries}</strong> 个国家</div>
-            </div>
-            <div class="stats-bar">{cat_summary_html}</div>
-        </header>
-
-        <div class="country-grid">{country_cards}</div>
-
-        <div class="calendar-section">
-            <h2>📆 历史采集日历</h2>
-            {calendar_html}
-        </div>
-
-        <footer>
-            <p>自动生成于 {now_str} · 数据来源: GNews / Google CSE / MediaStack / RSS</p>
-            <p>GitHub Actions 每日 09:00 UTC 自动更新</p>
-        </footer>
-    </div>
-
-    <script>
-        function showDate(dateStr) {{
-            alert('切换到日期: ' + dateStr + '\\n（完整历史切换功能开发中）');
-        }}
-    </script>
+<div class="w">
+<div class="hd"><div><h1>🌍 全球出入境旅游热点看板</h1><div class="sub">📅 数据窗口：{{WINDOW}} ｜ 自动采集 ｜ 25国×10条</div></div><div class="badge"><span class="dot"></span>实时看板</div></div>
+<div class="cal-wrap"><div class="cal-title">📅 历史记录日历（点击切换日期）</div><div class="cal-strip" id="calstrip"></div></div>
+<div class="sg"><div class="st"><div class="v" id="sc">-</div><div class="l">覆盖国家/地区</div></div><div class="st"><div class="v" id="sn">-</div><div class="l">当日要闻</div></div><div class="st boom"><div class="v" id="sb">-</div><div class="l">🔥 爆款</div></div><div class="st hot"><div class="v" id="sh">-</div><div class="l"> 热门</div></div><div class="st new"><div class="v" id="sx">-</div><div class="l">✨ 最新</div></div></div>
+<div class="legend"><div class="legend-item"><div class="legend-dot" style="background:#6366f1"></div>航线交通</div><div class="legend-item"><div class="legend-dot" style="background:#ec4899"></div>出入境政策</div><div class="legend-item"><div class="legend-dot" style="background:#f59e0b"></div>本地生活</div><div class="legend-item"><div class="legend-dot" style="background:#10b981"></div>旅游趋势</div><div class="legend-item"><div class="legend-dot" style="background:#3b82f6"></div>景点活动</div><div class="legend-item"><div class="legend-dot" style="background:#8b5cf6"></div>文娱信息</div></div>
+<input class="si" id="si" placeholder=" 搜索标题、摘要、国家…" oninput="render()">
+<div class="ch" id="chips"></div>
+<div class="cl" id="clist"></div>
+<div class="ft">数据来源：WebSearch 自动采集 ｜ 更新时间：{{DATE}} ｜ 仅供参考，出行前请核实最新政策</div>
+</div>
+<div class="mo" id="mo" onclick="if(event.target===this)closeModal()"><div class="mc"><div class="mt"><button class="mx" onclick="closeModal()"></button><div class="mrr"><div class="mr" id="mr"></div><div><div class="mct" id="mct"></div></div></div><div class="mtl" id="mtl"></div></div><div class="mb"><div class="ms"><div class="msl"> 摘要</div><div class="msc" id="msum"></div></div><div class="ms"><div class="msl">📊 关键数据</div><div id="mkf"></div></div><div class="ms"><div class="msl">💡 影响分析</div><div class="mib" id="mimp"></div></div><div class="ms"><div class="msl">📌 出行提示</div><div class="ma info" id="madv"></div></div></div><div class="mf"><span id="msrc"></span><a id="msl" href="#" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:var(--bg);border-radius:8px;font-size:12px;color:#2932e1;text-decoration:none;border:1px solid var(--b)">🔗 查看原文</a></div></div></div>
+<script>
+var ALL_DATA={{DATA_JSON}};var dates=Object.keys(ALL_DATA.dates).sort().reverse();var curDate=ALL_DATA.today||dates[0];
+var SC_MAP={'航线交通':{icon:'✈️',color:'#6366f1',bg:'#eef2ff'},'出入境政策':{icon:'',color:'#ec4899',bg:'#fdf2f8'},'本地生活':{icon:'🏙️',color:'#f59e0b',bg:'#fffbeb'},'旅游趋势':{icon:'📊',color:'#10b981',bg:'#ecfdf5'},'景点活动':{icon:'🏛️',color:'#3b82f6',bg:'#eff6ff'},'文娱信息':{icon:'🎭',color:'#8b5cf6',bg:'#f5f3ff'}};
+function getItems(d){return(ALL_DATA.dates[d]&&ALL_DATA.dates[d].items)||[]}
+function renderCal(){var h='',dow=['日','一','二','三','四','五','六'];dates.forEach(function(d){var dt=new Date(d+'T00:00:00'),n=getItems(d).length||ALL_DATA.dates[d].total_items||0,cls='cal-day'+(d===curDate?' active':'')+(d===dates[0]?' today':'');h+='<div class="'+cls+'" onclick="switchDate(\''+d+'\')"><div class="dow">周'+dow[dt.getDay()]+'</div><div class="dn">'+dt.getDate()+'日</div><div class="dc">'+n+'条</div></div>'});document.getElementById('calstrip').innerHTML=h}
+function switchDate(d){curDate=d;renderCal();renderStats();renderChips();render()}
+function renderStats(){var items=getItems(curDate),countries={};items.forEach(function(i){countries[i.country]=1});var tags={爆:0,热:0,新:0};items.forEach(function(i){tags[i.tag]=(tags[i.tag]||0)+1});document.getElementById('sc').textContent=Object.keys(countries).length||25;document.getElementById('sn').textContent=items.length||ALL_DATA.dates[curDate].total_items||250;document.getElementById('sb').textContent=tags['爆']||(ALL_DATA.dates[curDate].tag_summary||{}).爆||0;document.getElementById('sh').textContent=tags['热']||(ALL_DATA.dates[curDate].tag_summary||{}).热||0;document.getElementById('sx').textContent=tags['新']||(ALL_DATA.dates[curDate].tag_summary||{}).新||0}
+function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML}
+function renderChips(){var items=getItems(curDate),cats=['全部'];items.forEach(function(i){var sc=i.sub_category||'旅游趋势';if(cats.indexOf(sc)<0)cats.push(sc)});var el=document.getElementById('chips');el.innerHTML='';cats.forEach(function(c){var b=document.createElement('span');b.className='cp'+(c==='全部'?' on':'');b.textContent=c;b.onclick=function(){document.querySelectorAll('.cp').forEach(function(x){x.classList.remove('on')});b.classList.add('on');render()};el.appendChild(b)});['爆','热','新'].forEach(function(t){var b=document.createElement('span');b.className='cp';b.textContent=t;b.style.borderColor=t==='爆'?'#ef4444':t==='热'?'#f97316':'#10b981';b.onclick=function(){document.querySelectorAll('.cp').forEach(function(x){x.classList.remove('on')});b.classList.add('on');renderFiltered(getItems(curDate).filter(function(i){return i.tag===t}))};el.appendChild(b)})}
+function render(){var activeChip=document.querySelector('.cp.on'),curCat=activeChip?activeChip.textContent:'全部';renderFiltered(curCat==='全部'?getItems(curDate):getItems(curDate).filter(function(i){return(i.sub_category||'旅游趋势')===curCat}))}
+function renderFiltered(items){var q=(document.getElementById('si').value||'').toLowerCase();if(q)items=items.filter(function(i){return(i.title+' '+i.summary+' '+i.country+' '+i.source).toLowerCase().indexOf(q)>=0});var byC={};items.forEach(function(i){if(!byC[i.country])byC[i.country]=[];byC[i.country].push(i)});var h='',fM={'中国':'🇳','日本':'🇯','韩国':'🇰🇷','泰国':'🇹🇭','新加坡':'🇸🇬','越南':'🇳','马来西亚':'🇲','印度':'🇮🇳','菲律宾':'🇵🇭','法国':'🇷','意大利':'🇮','西班牙':'🇪🇸','英国':'🇬🇧','德国':'🇪','希腊':'🇬','土耳其':'🇹🇷','瑞士':'🇨🇭','俄罗斯':'🇺','美国':'🇺','加拿大':'🇨','墨西哥':'🇲🇽','巴西':'🇧🇷','澳大利亚':'🇺','新西兰':'🇳','阿联酋':'🇦🇪','印度尼西亚':'🇮🇩','埃及':'🇪🇬'};Object.keys(byC).sort().forEach(function(c){var ev=byC[c],fl=fM[c]||'🌍';h+='<div class="cc"><div class="chd" onclick="this.parentElement.classList.toggle(\'open\')"><div class="left"><span class="cf">'+fl+'</span><span class="cn">'+esc(c)+'</span><span class="ct">'+ev.length+'条</span></div><span class="ar">▼</span></div><div class="cb">';ev.forEach(function(e){var rc=e.tag==='爆'?'r1':e.tag==='热'?'r2':'rn',sc=e.sub_category||'旅游趋势',sm=SC_MAP[sc]||{icon:'',color:'#64748b',bg:'#f1f5f9'};var tc=e.tag==='爆'?'boom':e.tag==='热'?'hot':'new';h+='<div class="ev" onclick="openModal('+items.indexOf(e)+',\''+curDate+'\')"><div class="ev-tag '+tc+'">'+esc(e.tag)+'</div><div class="er '+rc+'">'+sm.icon+'</div><div class="eb"><div class="et">'+esc(e.title)+'</div><div class="tg"><span class="tc tc-sc" style="background:'+sm.bg+';color:'+sm.color+'">'+sm.icon+' '+esc(sc)+'</span></div><div class="es">'+esc(e.summary)+'</div><div class="ei">💡 '+esc(e.impact)+'</div><div class="esr"> '+esc(e.source)+' ｜ 📌 '+esc(e.travel_advisory)+'</div></div></div>'});h+='</div></div>'});if(!items.length)h='<div style="text-align:center;padding:40px;color:var(--t3)">暂无匹配结果</div>';document.getElementById('clist').innerHTML=h}
+function openModal(idx,date){var items=getItems(date),e=items[idx];if(!e)return;var rc=e.tag==='爆'?'r1':e.tag==='热'?'r2':'rn',sc=e.sub_category||'旅游趋势',sm=SC_MAP[sc]||{icon:'📰',color:'#64748b',bg:'#f1f5f9'};document.getElementById('mr').className='mr '+rc;document.getElementById('mr').textContent=e.tag;document.getElementById('mct').innerHTML='<span style="background:'+sm.bg+';color:'+sm.color+';padding:2px 8px;border-radius:10px;font-size:11px">'+sm.icon+' '+esc(sc)+'</span>';document.getElementById('mtl').textContent=e.title;document.getElementById('msum').textContent=e.summary;var kfArr=Array.isArray(e.key_figures)?e.key_figures:[e.key_figures||'暂无数据'];document.getElementById('mkf').innerHTML=kfArr.map(function(f){return'<div class="kf">'+esc(f)+'</div>'}).join('');document.getElementById('mimp').textContent=e.impact;document.getElementById('madv').innerHTML='📌 '+esc(e.travel_advisory);document.getElementById('msrc').textContent='📎 '+e.source;document.getElementById('msl').href=e.source_url||'#';document.getElementById('mo').classList.add('show')}
+function closeModal(){document.getElementById('mo').classList.remove('show')}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal()});
+renderCal();renderStats();renderChips();render();
+</script>
 </body>
-</html>"""
+</html>'''
 
+def validate_and_fix(data):
+    """校验配额：6类分布 + 标签数量 + 航线热点限制。
+    只在数量不对时才修复，不改变已有的标签位置分配。"""
+    EXPECTED_SC = {"航线交通":2,"出入境政策":2,"本地生活":1,"旅游趋势":2,"景点活动":2,"文娱信息":1}
+    ALL_CATS = ["航线交通","出入境政策","本地生活","旅游趋势","景点活动","文娱信息"]
+    fixes = 0
 
-def main():
-    log.info("Generating dashboard HTML...")
-    data = load_data()
-    html = generate_html(data)
+    for date_key, date_data in data.get("dates", {}).items():
+        items = date_data.get("items", [])
+        if not items:
+            continue
+        countries = sorted(set(i.get("country","") for i in items))
 
-    OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+        for country in countries:
+            citems = [i for i in items if i["country"] == country]
+
+            # --- 1. 校验6类分布 ---
+            sc = {}
+            for i in citems:
+                sc[i["sub_category"]] = sc.get(i["sub_category"], 0) + 1
+            if sc != EXPECTED_SC:
+                over = {k: v - EXPECTED_SC[k] for k, v in sc.items() if v > EXPECTED_SC.get(k, 0)}
+                under = {k: EXPECTED_SC[k] - sc.get(k, 0) for k in EXPECTED_SC if sc.get(k, 0) < EXPECTED_SC[k]}
+                for over_cat, over_count in over.items():
+                    for under_cat, uc in list(under.items()):
+                        if uc <= 0: continue
+                        changed = 0
+                        for i in citems:
+                            if i["sub_category"] == over_cat and changed < min(over_count, uc):
+                                i["sub_category"] = under_cat
+                                changed += 1
+                                fixes += 1
+                        under[under_cat] -= changed
+
+            # --- 2. 校验标签数量（1爆+2热+7新），只在数量不对时修复 ---
+            tag_counts = {}
+            for i in citems:
+                t = i.get("tag", "新")
+                tag_counts[t] = tag_counts.get(t, 0) + 1
+
+            if tag_counts.get("爆",0) != 1 or tag_counts.get("热",0) != 2 or tag_counts.get("新",0) != 7:
+                for i in citems:
+                    i["tag"] = "新"
+                cat_idx = hash(country) % len(ALL_CATS)
+                boom_cat = ALL_CATS[cat_idx]
+                boom_candidates = [i for i in citems if i["sub_category"] == boom_cat]
+                if boom_candidates:
+                    boom_candidates[0]["tag"] = "爆"
+                hot_assigned = 0
+                for offset in range(1, len(ALL_CATS)):
+                    if hot_assigned >= 2:
+                        break
+                    hcat = ALL_CATS[(cat_idx + offset) % len(ALL_CATS)]
+                    h_candidates = [i for i in citems if i["sub_category"] == hcat and i["tag"] == "新"]
+                    if h_candidates:
+                        h_candidates[0]["tag"] = "热"
+                        hot_assigned += 1
+                fixes += 1
+
+            # --- 3. 校验航线热点限制（每国航线交通的爆+热≤2）---
+            route_hot = sum(1 for i in citems if i["sub_category"] == "航线交通" and i.get("tag") in ("爆","热"))
+            if route_hot > 2:
+                downgraded = 0
+                for i in citems:
+                    if i["sub_category"] == "航线交通" and i.get("tag") in ("爆","热") and downgraded < route_hot - 2:
+                        i["tag"] = "新"
+                        downgraded += 1
+                        fixes += 1
+                current_tags = {}
+                for i in citems:
+                    current_tags[i.get("tag","新")] = current_tags.get(i.get("tag","新"), 0) + 1
+                need_boom = 1 - current_tags.get("爆", 0)
+                need_hot = 2 - current_tags.get("热", 0)
+                for i in citems:
+                    if i["sub_category"] != "航线交通" and i["tag"] == "新":
+                        if need_boom > 0:
+                            i["tag"] = "爆"
+                            need_boom -= 1
+                        elif need_hot > 0:
+                            i["tag"] = "热"
+                            need_hot -= 1
+
+        tag_counts = {"爆":0,"热":0,"新":0}
+        for i in items:
+            tag_counts[i.get("tag","新")] += 1
+        date_data["tag_summary"] = tag_counts
+        date_data["total_items"] = len(items)
+    return fixes
+
+def generate(data_path, output_path):
+    with open(data_path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    fixes = validate_and_fix(data)
+    if fixes:
+        print(f"⚠️ 自动修复了 {fixes} 处配额/标签问题")
+        with open(data_path, 'w', encoding='utf-8') as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+    today = data.get('today', datetime.now().strftime('%Y-%m-%d'))
+    dates_data = data.get('dates', {})
+    window = data.get('window', '')
+    if not window and today in dates_data:
+        td = datetime.strptime(today, '%Y-%m-%d')
+        window = f"{(td-timedelta(days=6)).strftime('%Y-%m-%d')} ~ {today}"
+    items_json = json.dumps(data, ensure_ascii=False, indent=2)
+    html = HTML_TEMPLATE.replace('{{DATE}}', today).replace('{{WINDOW}}', window).replace('{{DATA_JSON}}', items_json)
+    with open(output_path, 'w', encoding='utf-8') as f:
         f.write(html)
-    log.info(f"✅ Dashboard written to {OUTPUT_FILE}")
-    log.info(f"   File size: {len(html):,} bytes")
+    if today in dates_data:
+        n = len(dates_data[today].get('items', []))
+        tags = dates_data[today].get('tag_summary', {})
+        countries = len(set(i.get('country', '') for i in dates_data[today].get('items', [])))
+        print(f"✅ 看板已生成: {output_path}")
+        print(f"   📅 {today} | 🌍 {countries}国 | 📰 {n}条 | 🔥 爆{tags.get('爆',0)} 热{tags.get('热',0)} 新{tags.get('新',0)}")
+        print(f"   📅 历史: {', '.join(sorted(dates_data.keys()))} ({len(dates_data)}天)")
 
-
-if __name__ == "__main__":
-    main()
+if __name__ == '__main__':
+    p = argparse.ArgumentParser()
+    p.add_argument('-d', '--data', required=True)
+    p.add_argument('-o', '--output', default='index.html')
+    a = p.parse_args()
+    generate(a.data, a.output)
