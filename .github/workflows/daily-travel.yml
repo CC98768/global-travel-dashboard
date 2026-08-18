@@ -1,59 +1,62 @@
-name: Daily Travel Dashboard Update
+name: Daily Travel Dashboard
 
 on:
   schedule:
-    # Runs daily at 09:00 UTC (configurable)
-    - cron: '0 9 * * *'
-  workflow_dispatch:  # Manual trigger from Actions tab
+    - cron: '0 1 * * *'  # UTC 01:00 = 北京时间 09:00
+  workflow_dispatch:  # 手动触发
+
+permissions:
+  contents: write
 
 jobs:
   update-dashboard:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Set up Python 3.11
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: 'pip'
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: pip install requests
 
-      - name: Fetch travel news
+      - name: Fetch news and generate data
         env:
           GNEWS_API_KEY: ${{ secrets.GNEWS_API_KEY }}
           GOOGLE_CSE_API_KEY: ${{ secrets.GOOGLE_CSE_API_KEY }}
           GOOGLE_CSE_ENGINE_ID: ${{ secrets.GOOGLE_CSE_ENGINE_ID }}
           MEDIASTACK_API_KEY: ${{ secrets.MEDIASTACK_API_KEY }}
-        run: |
-          python scripts/fetch_news.py
-        continue-on-error: false
+        run: python scripts/fetch_news.py
 
       - name: Generate dashboard HTML
-        run: python scripts/generate_dashboard.py
+        run: python scripts/generate_dashboard.py -d data/travel_daily.json -o docs/index.html
 
-      - name: Check for changes and commit
+      - name: Check for changes
+        id: git-check
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/travel_daily.json docs/index.html
-          if git diff --cached --quiet; then
-            echo "No changes to commit."
+          if git diff --quiet; then
+            echo "changed=false" >> $GITHUB_OUTPUT
           else
-            git commit -m "🌍 Auto-update travel dashboard $(date -u +%Y-%m-%d)"
-            git push
-            echo "✅ Changes committed and pushed."
+            echo "changed=true" >> $GITHUB_OUTPUT
           fi
 
-      - name: Deployment status
-        if: always()
+      - name: Commit and push
+        if: steps.git-check.outputs.changed == 'true'
         run: |
-          echo "Dashboard will be available at: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+          git add -A
+          git commit -m "📅 Daily update: $(date +%Y-%m-%d)"
+          git push
+
+      - name: Summary
+        run: |
+          echo "## ✅ Dashboard Updated" >> $GITHUB_STEP_SUMMARY
+          echo "- Date: $(date +%Y-%m-%d)" >> $GITHUB_STEP_SUMMARY
+          echo "- Data: data/travel_daily.json" >> $GITHUB_STEP_SUMMARY
+          echo "- Page: https://CC98768.github.io/global-travel-dashboard/" >> $GITHUB_STEP_SUMMARY
