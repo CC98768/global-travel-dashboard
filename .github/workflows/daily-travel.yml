@@ -1,0 +1,59 @@
+name: Daily Travel Dashboard Update
+
+on:
+  schedule:
+    # Runs daily at 09:00 UTC (configurable)
+    - cron: '0 9 * * *'
+  workflow_dispatch:  # Manual trigger from Actions tab
+
+jobs:
+  update-dashboard:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Fetch travel news
+        env:
+          GNEWS_API_KEY: ${{ secrets.GNEWS_API_KEY }}
+          GOOGLE_CSE_API_KEY: ${{ secrets.GOOGLE_CSE_API_KEY }}
+          GOOGLE_CSE_ENGINE_ID: ${{ secrets.GOOGLE_CSE_ENGINE_ID }}
+          MEDIASTACK_API_KEY: ${{ secrets.MEDIASTACK_API_KEY }}
+        run: |
+          python scripts/fetch_news.py
+        continue-on-error: false
+
+      - name: Generate dashboard HTML
+        run: python scripts/generate_dashboard.py
+
+      - name: Check for changes and commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/travel_daily.json docs/index.html
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "🌍 Auto-update travel dashboard $(date -u +%Y-%m-%d)"
+            git push
+            echo "✅ Changes committed and pushed."
+          fi
+
+      - name: Deployment status
+        if: always()
+        run: |
+          echo "Dashboard will be available at: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
