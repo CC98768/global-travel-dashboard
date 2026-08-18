@@ -61,7 +61,7 @@ def search_gnews(query, max_results=5):
     if not API_KEYS['gnews']:
         return []
     try:
-        url = f"https://gnews.io/api/v4/search?q={query}&lang=en&max={max_results}&apikey={API_KEYS['gnews']}"
+        url = f"https://gnews.io/api/v4/search?q={query}&lang=zh&max={max_results}&apikey={API_KEYS['gnews']}"
         r = requests.get(url, timeout=5)
         return r.json().get('articles', [])
     except:
@@ -71,7 +71,7 @@ def search_google(query, max_results=5):
     if not API_KEYS['google'] or not API_KEYS['google_cx']:
         return []
     try:
-        url = f"https://customsearch.googleapis.com/customsearch/v1?q={query}&cx={API_KEYS['google_cx']}&key={API_KEYS['google']}&num={max_results}"
+        url = f"https://customsearch.googleapis.com/customsearch/v1?q={query}&cx={API_KEYS['google_cx']}&key={API_KEYS['google']}&num={max_results}&lr=lang_zh-CN"
         r = requests.get(url, timeout=5)
         items = r.json().get('items', [])
         return [{'title': i['title'], 'description': i.get('snippet',''), 'url': i.get('link',''), 'source': {'name': i.get('displayLink','')}} for i in items]
@@ -122,12 +122,12 @@ def article_to_item(art, zh_name, en_name):
         "title": title_en,
         "category": "旅游利好要闻",
         "sub_category": cat,
-        "summary": desc_en[:120] if desc_en else f"News from {source_name}",
+        "summary": desc_en[:120] if desc_en else f"来自{source_name}的报道",
         "source": source_name,
-        "impact": f"Impact on {zh_name} travel",
+        "impact": f"影响赴{zh_name}旅行",
         "source_url": url,
         "key_figures": [],
-        "travel_advisory": "Check latest policy",
+        "travel_advisory": "出行前核实最新政策",
         "tag": "新",
         "country": zh_name
     }
@@ -185,7 +185,7 @@ def run():
 
     for zh_name, en_name in COUNTRIES:
         print(f"  📡 {zh_name}...", end=' ')
-        query = f"{en_name} travel tourism visa 2026"
+        query = f"{zh_name} 旅游 签证 航线 2026"
         articles = search(query)
         print(f"API返回{len(articles)}条", end=' ')
 
@@ -198,7 +198,7 @@ def run():
 
         # 不够10条？用该类别真实API数据补，不编造
         while len(country_items) < 10:
-            query2 = f"{en_name} {['airline','visa','hotel','tourist','festival','concert'][len(country_items) % 6]} news 2026"
+            query2 = f"{zh_name} {['航线','签证','酒店','游客','节日','演唱会'][len(country_items) % 6]} 2026"
             more = search(query2)
             if not more:
                 break
