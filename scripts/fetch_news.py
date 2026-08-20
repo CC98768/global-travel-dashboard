@@ -55,7 +55,7 @@ LOCALE_MAP = {
 }
 
 COUNTRIES_25 = [
-    ("中国","China tourism outbound travel"),
+    ("中国","中国旅游 出入境 利好"),
     ("日本","Japan tourism travel"),
     ("韩国","Korea tourism travel"),
     ("泰国","Thailand tourism travel"),
@@ -70,7 +70,6 @@ COUNTRIES_25 = [
     ("西班牙","Spain tourism travel"),
     ("英国","UK Britain tourism travel"),
     ("德国","Germany tourism travel"),
-    ("希腊","Greece tourism travel"),
     ("土耳其","Turkey tourism travel"),
     ("瑞士","Switzerland tourism travel"),
     ("俄罗斯","Russia tourism travel"),
@@ -78,12 +77,16 @@ COUNTRIES_25 = [
     ("加拿大","Canada tourism travel"),
     ("墨西哥","Mexico tourism travel"),
     ("巴西","Brazil tourism travel"),
+    ("阿根廷","Argentina tourism travel"),
     ("澳大利亚","Australia travel tourism"),
     ("新西兰","New Zealand travel tourism"),
+    ("阿联酋","UAE Dubai tourism travel"),
+    ("埃及","Egypt tourism travel 2026"),
+    ("南非","South Africa tourism travel"),
 ]
 
 FLIGHT_QUERIES = {
-    "中国":"China flight airline route new","日本":"Japan airline flight route new",
+    "中国":"中国 航班 航线 新开","日本":"Japan airline flight route new",
     "韩国":"Korea airline flight route","泰国":"Thailand airline flight Bangkok",
     "新加坡":"Singapore airline flight Changi","越南":"Vietnam airline flight",
     "马来西亚":"Malaysia airline flight KLIA","印度":"India airline flight route",
@@ -94,12 +97,17 @@ FLIGHT_QUERIES = {
     "土耳其":"Turkey airline flight Istanbul","瑞士":"Switzerland airline flight Zurich",
     "俄罗斯":"Russia airline flight Moscow","美国":"USA airline flight route new",
     "加拿大":"Canada airline flight Toronto Vancouver","墨西哥":"Mexico airline flight Cancun",
-    "巴西":"Brazil airline flight Sao Paulo","澳大利亚":"Australia airline flight Sydney",
+    "巴西":"Brazil airline flight Sao Paulo",
+    "阿根廷":"Argentina airline flight Buenos Aires",
+    "澳大利亚":"Australia airline flight Sydney",
     "新西兰":"New Zealand airline flight Auckland",
+    "阿联酋":"UAE airline flight Dubai",
+    "埃及":"Egypt airline flight Cairo",
+    "南非":"South Africa airline flight Johannesburg",
 }
 
 VISA_QUERIES = {
-    "中国":"China visa free entry policy 2026","日本":"Japan visa entry policy 2026",
+    "中国":"中国 免签 签证 入境 2026","日本":"Japan visa entry policy 2026",
     "韩国":"Korea visa entry policy 2026","泰国":"Thailand visa free extension 2026",
     "新加坡":"Singapore visa free China 2026","越南":"Vietnam visa e-visa policy",
     "马来西亚":"Malaysia visa free China 2026","印度":"India visa policy e-visa",
@@ -110,8 +118,13 @@ VISA_QUERIES = {
     "土耳其":"Turkey e-visa policy 2026","瑞士":"Switzerland Schengen visa",
     "俄罗斯":"Russia visa policy 2026","美国":"USA visa B1 B2 policy 2026",
     "加拿大":"Canada visa tourist policy 2026","墨西哥":"Mexico visa policy 2026",
-    "巴西":"Brazil visa tourist policy 2026","澳大利亚":"Australia ETA visa 2026",
+    "巴西":"Brazil visa tourist policy 2026",
+    "阿根廷":"Argentina visa tourist policy 2026",
+    "澳大利亚":"Australia ETA visa 2026",
     "新西兰":"New Zealand NZeTA visa 2026",
+    "阿联酋":"UAE visa free entry policy 2026",
+    "埃及":"Egypt visa e-visa policy 2026",
+    "南非":"South Africa visa policy 2026",
 }
 
 EXTRA_QUERIES = {

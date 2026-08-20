@@ -156,7 +156,7 @@ COUNTRIES = {
             {"name": "CGTN Travel", "url": "https://www.cgtn.com/travel"},
             {"name": "China Daily Travel", "url": "https://www.chinadaily.com.cn/life/travel"}
         ],
-        "keywords": ["China travel", "China visa", "China tourism", "China inbound tourism", "China transit visa"]
+        "keywords": ["中国旅游", "中国签证", "中国入境", "中国免签", "中国出境游", "中国入境游"]
     },
     "India": {
         "tourism_board": {
