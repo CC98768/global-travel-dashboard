@@ -46,8 +46,12 @@ LOCALE_MAP = {
     "加拿大": [("en","CA"),("fr","CA"),("zh-CN","CN")],
     "墨西哥": [("es","MX"),("en","US")],
     "巴西": [("pt","BR"),("en","US")],
+    "阿根廷": [("es","AR"),("en","US")],
     "澳大利亚": [("en","AU"),("zh-CN","CN")],
     "新西兰": [("en","NZ"),("zh-CN","CN")],
+    "阿联酋": [("en","AE"),("zh-CN","CN")],
+    "埃及": [("ar","EG"),("en","US")],
+    "南非": [("en","ZA"),("zh-CN","CN")],
 }
 
 COUNTRIES_25 = [
@@ -243,13 +247,14 @@ def fetch_google_news(country, base_query, max_per_query=50):
                 continue
             title = entry.get('title', '').strip()
             summary_html = entry.get('summary', entry.get('description', '')).strip()
-            if '<' in summary_html:
+            # 清理 HTML 标签
+            summary = summary_html
+            if '<' in summary:
                 try:
-                    summary = BeautifulSoup(summary_html, 'lxml').get_text()[:200]
+                    summary = BeautifulSoup(summary_html, 'html.parser').get_text(separator=' ', strip=True)
                 except:
-                    summary = summary_html[:200]
-            else:
-                summary = summary_html[:200]
+                    summary = re.sub(r'<[^>]+>', ' ', summary_html)
+            summary = re.sub(r'\s+', ' ', summary).strip()[:200]
             if not title:
                 continue
             entries.append({
@@ -446,42 +451,14 @@ def build_daily(entries, history):
                 "tag": "新",
                 "country": country,
             })
-    PER_COUNTRY_BASE = 9
-    TARGET_TOTAL = 250
+    # 每国选10条，按分类配额分配
     all_items = []
-    overflow_pool = []
-    country_counts = {}
     for c in COUNTRIES_25:
         country_name = c[0]
         ci = by_c.get(country_name, [])
-        if len(ci) >= PER_COUNTRY_BASE:
-            sel = select_quota(ci, target=PER_COUNTRY_BASE)
-            selected_titles = {i["title"] for i in sel}
-            for i in ci:
-                if i["title"] not in selected_titles:
-                    overflow_pool.append(i)
-        else:
-            sel = list(ci)
-        country_counts[country_name] = len(sel)
+        sel = select_quota(ci, target=10)
+        assign_tags(sel, country_name)
         all_items.extend(sel)
-    overflow_pool.sort(key=lambda x: country_counts.get(x["country"], 999))
-    for item in overflow_pool:
-        if len(all_items) >= TARGET_TOTAL:
-            break
-        c = item["country"]
-        if country_counts.get(c, 0) < 10 and item not in all_items:
-            all_items.append(item)
-            country_counts[c] = country_counts.get(c, 0) + 1
-    for item in overflow_pool:
-        if len(all_items) >= TARGET_TOTAL:
-            break
-        if item not in all_items:
-            all_items.append(item)
-    by_country_final = {}
-    for i in all_items:
-        by_country_final.setdefault(i["country"], []).append(i)
-    for country_name, items in by_country_final.items():
-        assign_tags(items, country_name)
     sc_cnt = {}
     for i in all_items:
         sc_cnt[i["sub_category"]] = sc_cnt.get(i["sub_category"], 0) + 1
