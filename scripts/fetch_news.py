@@ -501,7 +501,8 @@ def run():
         log.error(" 无数据，保留历史数据不更新")
         return
     if len(entries) < 50:
-        log.warning(f" 仅采集到{len(entries)}条，数据不足")
+        log.warning(f" 仅采集到{len(entries)}条，数据不足，保留历史数据不更新")
+        return
     today_data = build_daily(entries, history)
     n = len(today_data["dates"][TODAY]["items"])
     for dk, dd in today_data["dates"].items():
