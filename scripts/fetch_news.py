@@ -505,8 +505,24 @@ def run():
         return
     today_data = build_daily(entries, history)
     n = len(today_data["dates"][TODAY]["items"])
-    for dk, dd in today_data["dates"].items():
-        history["dates"][dk] = dd
+    today_items = today_data["dates"][TODAY]["items"]
+    today_countries = set(i.get("country","") for i in today_items)
+
+    # 质量检查：必须250条+25国才能覆盖
+    if n < 250 or len(today_countries) < 25:
+        log.warning(f" 数据不完整 ({n}条, {len(today_countries)}国)，保留现有数据不更新")
+        return
+
+    # 检查每国是否10条
+    from collections import Counter
+    country_counts = Counter(i.get("country","") for i in today_items)
+    bad_countries = [c for c, cnt in country_counts.items() if cnt != 10]
+    if bad_countries:
+        log.warning(f" 配额不对 ({len(bad_countries)}个国家不是10条)，保留现有数据不更新")
+        return
+
+    # 只更新今天的数据，不覆盖历史日期
+    history["dates"][TODAY] = today_data["dates"][TODAY]
     all_dates = sorted(history["dates"].keys())
     history["today"] = TODAY
     history["window"] = f"{all_dates[-7] if len(all_dates) >= 7 else all_dates[0]} ~ {all_dates[-1]}"
