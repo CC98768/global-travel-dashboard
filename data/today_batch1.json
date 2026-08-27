@@ -1,0 +1,985 @@
+[
+  {
+    "title": "美联航宣布开通旧金山直飞冲绳及洛杉矶直飞大阪新航线",
+    "category": "航线交通",
+    "sub_category": "航线交通",
+    "summary": "美联航（United Airlines）于2026年8月宣布重大日本航线扩展计划，将于2027年3月开通旧金山至冲绳那霸机场每周三班直飞航线，成为唯一提供该航线直飞服务的美国航空公司。同时新增洛杉矶至关西机场每日直飞航班，加上现有的关岛和旧金山至大阪航线，使美联航成为唯一从两个美国大陆城市直飞大阪的航空公司，全面加码日本旅游市场。",
+    "source": "航空新闻",
+    "impact": "此次航线扩展将大幅提升美国赴日游客便利度，特别是冲绳作为新兴旅游目的地的国际可达性显著提升，有助于分散东京、京都等热门城市的客流压力，推动日本地方旅游发展。",
+    "source_url": "https://www.united.com/en-us/fly/company/global-operations/route-news.html",
+    "source_url_google": "https://www.google.com/search?q=United+Airlines+San+Francisco+Okinawa+Los+Angeles+Osaka+new+routes+2027",
+    "key_figures": [
+      "旧金山-冲绳每周3班",
+      "洛杉矶-大阪每日1班"
+    ],
+    "travel_advisory": "计划2027年春季赴日旅客可关注新航线开航特惠，冲绳航线适合避开本州热门城市拥挤期出行。",
+    "tag": "pending",
+    "country": "日本",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "全日空发布冬春航季国际航班计划 10月底起优化全球航线网络",
+    "category": "航线交通",
+    "sub_category": "航线交通",
+    "summary": "全日空（ANA）于2026年8月20日发布2026年冬春航季国际航班时刻表，覆盖10月25日至2027年3月27日期间的航线安排。此次调整包括多条亚洲及欧美航线的频次优化和时间调整。此前ANA已宣布计划到2030年将国际航线网络扩大30%，新增15条航线，并引进11架波音787客机以强化远程运力，持续加码国际旅游市场布局。",
+    "source": "全日空公告",
+    "impact": "ANA航线网络的持续优化为赴日旅客提供更多航班选择，配合787机队的扩充，中长距离航线的座位供给将显著增加，有利于缓解暑期旺季一票难求的局面。",
+    "source_url": "https://www.ana.co.jp/en/jp/int/flight/timetable/",
+    "source_url_google": "https://www.google.com/search?q=ANA+winter+spring+2026+international+flight+schedule",
+    "key_figures": [
+      "2030年航线网络扩大30%",
+      "新增15条航线",
+      "引进11架波音787"
+    ],
+    "travel_advisory": "2026年秋冬赴日旅客请注意航班时刻调整，建议提前关注ANA官网冬春航季时刻表变化。",
+    "tag": "pending",
+    "country": "日本",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "日本9月起实施入境停留灵活化新规 审查官可自主核定停留天数",
+    "category": "出入境政策",
+    "sub_category": "出入境政策",
+    "summary": "日本政府将于2026年9月起实施短期停留规则重大改革，停留期限不再固定为15天、30天或90天的标准档位，入境审查官将根据旅客实际行程，在90天内灵活核定具体停留天数。此项改革将惠及旅游、探亲和商务出行人士，使签证政策更加人性化和精准化。同时，Visit Japan Web系统持续升级，旅客可提前在线填写入境信息生成二维码，配合主要机场的自助通关机快速入境。",
+    "source": "日本出入国在留管理厅",
+    "impact": "灵活停留制度将大幅提升短期访日旅客的出行自由度，避免了以往天数不够用或给太多浪费的尴尬，有助于延长游客实际消费时间和提升旅游体验。",
+    "source_url": "https://www.moj.go.jp/isa/",
+    "source_url_google": "https://www.google.com/search?q=日本+2026年9月+短期停留+灵活化+新规",
+    "key_figures": [
+      "90天内灵活核定停留天数",
+      "2026年9月起实施"
+    ],
+    "travel_advisory": "9月后赴日旅客建议在入境时向审查官说明完整行程安排，以获得更合理的停留天数核定。",
+    "tag": "pending",
+    "country": "日本",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "日本版JESTA电子旅行授权系统立法通过 2028年前正式实施",
+    "category": "出入境政策",
+    "sub_category": "出入境政策",
+    "summary": "日本电子旅行授权系统（JESTA）已通过立法程序，计划于2028年前正式实施。该系统类似于美国ESTA，要求目前享受免签待遇的国家旅客在赴日前在线登记并获得授权。目前系统处于过渡准备阶段，免签国旅客暂不受影响。JESTA旨在加强边境安全审查，同时维持日本对74个国家和地区的免签入境政策。过渡期安排将另行公布。",
+    "source": "日本法务省",
+    "impact": "JESTA的实施将对免签国旅客增加一道在线登记程序，短期内对中国大陆旅客影响有限（仍需签证），但长远看可能推动日本进一步简化签证申请流程以提高国际竞争力。",
+    "source_url": "https://www.moj.go.jp/MINJI/minji.html",
+    "source_url_google": "https://www.google.com/search?q=日本+JESTA+电子旅行授权+2028+实施",
+    "key_figures": [
+      "覆盖74个免签国家",
+      "2028年前实施"
+    ],
+    "travel_advisory": "目前免签国旅客暂不需要申请JESTA，但2028年前赴日的免签国旅客需关注实施细则。中国大陆旅客签证政策暂不受影响。",
+    "tag": "pending",
+    "country": "日本",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "日本7月访日外国游客达344万人次创单月历史新高",
+    "category": "旅游趋势",
+    "sub_category": "旅游趋势",
+    "summary": "日本政府观光局（JNTO）发布数据，2026年7月访日外国游客达344.21万人次，同比增长0.1%，创下7月份单月历史最高纪录，也是三个月来首次实现同比正增长。其中韩国游客最多达89.47万人次（+31.9%），台湾游客76.38万人次（+26.4%）创单月新高，中国大陆游客42.82万人次（-56.1%）连续8个月下降。1-7月累计2452.72万人次，同比微降1.7%。",
+    "source": "日本政府观光局(JNTO)",
+    "impact": "日本旅游市场呈现总量稳定结构分化态势：韩国和台湾游客强劲增长弥补了中国大陆游客的大幅下滑，欧美高消费游客成为新的增长极，人均消费水平持续提升。",
+    "source_url": "https://www.jnto.go.jp/jpn/statistics/data_file_listing/index.html",
+    "source_url_google": "https://www.google.com/search?q=日本+2026年7月+访日外国游客+344万+JNTO",
+    "key_figures": [
+      "7月游客344.21万人次",
+      "韩国89.47万(+31.9%)",
+      "台湾76.38万(+26.4%)",
+      "中国大陆42.82万(-56.1%)"
+    ],
+    "travel_advisory": "暑期赴日游客量大，热门景点和住宿建议提前预订；关注日本地方城市旅游优惠以避开都市圈人潮。",
+    "tag": "pending",
+    "country": "日本",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "日本上半年游客消费额创新高 美国游客消费力超越中国大陆居首",
+    "category": "旅游趋势",
+    "sub_category": "旅游趋势",
+    "summary": "2026年上半年（1-6月），访日游客总消费额达4.8469万亿日元，同比增长1.3%，创同期历史最高纪录。数据呈现人数略降消费反增的趋势特征：中国大陆游客消费额几乎减半，而美国已超越中国大陆成为在日本消费的第一大客源国。欧美及台湾、韩国等高客单价游客的增长有效弥补了中国大陆市场下滑带来的影响，人均消费水平显著提升。",
+    "source": "日本政府观光局",
+    "impact": "游客消费结构的变化意味着日本旅游市场正在经历客源多元化转型，高消费力的欧美游客比重上升，推动日本旅游产业向高品质、高附加值方向升级。",
+    "source_url": "https://www.jnto.go.jp/jpn/statistics/index.html",
+    "source_url_google": "https://www.google.com/search?q=日本+2026上半年+游客消费+4.8万亿日元+美国居首",
+    "key_figures": [
+      "上半年消费总额4.85万亿日元(+1.3%)",
+      "美国超越中国成消费第一大国"
+    ],
+    "travel_advisory": "日本旅游消费水平持续走高，建议旅客合理规划预算；地方城市住宿和餐饮性价比优于东京大阪等核心城市。",
+    "tag": "pending",
+    "country": "日本",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "日本免税购物制度11月起重大改革 机场离境时统一退税",
+    "category": "本地生活",
+    "sub_category": "本地生活",
+    "summary": "日本将于2026年11月1日起对免税购物制度进行重大改革。届时，百货商店和电器店等零售店铺内的即时免税扣除将停止执行，改为旅客在机场离境时统一办理退税手续。这一变化将影响所有在日购物并享受免税待遇的外国游客。此外，日本出境税也已于7月1日起从1000日元涨至3000日元，JR Pass价格将于10月1日再次上调。",
+    "source": "日本国税厅",
+    "impact": "免税退税移至机场可能增加旅客离境时的排队时间，建议提前到达机场办理；同时也意味着购物时需在店内全额支付，对旅客现金流有一定影响。",
+    "source_url": "https://www.nta.go.jp/english/taxes/tax_free/",
+    "source_url_google": "https://www.google.com/search?q=日本+免税+制度+改革+2026年11月+机场退税",
+    "key_figures": [
+      "11月1日起实施",
+      "店铺即时免税取消",
+      "出境税涨至3000日元"
+    ],
+    "travel_advisory": "11月后赴日购物旅客请注意：店内购物需先付含税价格，离境时在机场办理退税；建议预留充足机场退税时间。",
+    "tag": "pending",
+    "country": "日本",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "Summer Sonic 2026音乐节8月东京大阪两地同步举办",
+    "category": "景点活动",
+    "sub_category": "景点活动",
+    "summary": "日本最大都市型音乐节Summer Sonic 2026于8月14日至16日在东京（ZOZO海洋体育场和幕张展览馆）及大阪（万博纪念公园）两地同步举办。东京会场设有Spotify Stage，PEOPLE 1、Nishina、Kurayamisaka等人气艺人登台演出。该音乐节以汇聚全球顶尖音乐人著称，是亚洲最具影响力的夏季音乐盛事之一，每年吸引数十万乐迷参与。",
+    "source": "Summer Sonic官方",
+    "impact": "Summer Sonic作为日本标志性音乐盛事，持续吸引大量海外乐迷赴日，带动周边住宿、餐饮和交通消费，是音乐旅游（Music Tourism）的典型案例。",
+    "source_url": "https://www.summersonic.com/2026/",
+    "source_url_google": "https://www.google.com/search?q=Summer+Sonic+2026+东京+大阪+8月",
+    "key_figures": [
+      "8月14-16日三天",
+      "东京+大阪两地会场"
+    ],
+    "travel_advisory": "音乐节期间千叶和大阪住宿紧张，建议提前预订；注意防暑降温，8月日本气温常超34°C。",
+    "tag": "pending",
+    "country": "日本",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "高圆寺阿波舞大会8月29日东京举行 万名舞者百万观众共舞",
+    "category": "景点活动",
+    "sub_category": "景点活动",
+    "summary": "东京代表性夏日祭典之一的高圆寺阿波舞大会定于2026年8月29日至30日举行。预计约1万名舞者将在JR高圆寺站南口至阿佐谷一带的街道上翩翩起舞，吸引约100万名观众到场观赏。同期原宿表参道还将举办首都圈最大规模的Yosakoi节，来自日本各地及海外的舞者带来充满活力的表演。",
+    "source": "高圆寺阿波舞实行委员会",
+    "impact": "传统祭典活动是吸引国际游客的重要文化资源，夏季祭典期间东京酒店入住率通常走高，建议提前规划行程和住宿。",
+    "source_url": "https://www.koenji-awaodori.com/",
+    "source_url_google": "https://www.google.com/search?q=高圆寺+阿波舞+2026+8月29日+东京",
+    "key_figures": [
+      "约1万名舞者",
+      "约100万名观众",
+      "8月29-30日两天"
+    ],
+    "travel_advisory": "活动期间高圆寺周边交通管制，建议使用公共交通前往；天气炎热请做好防暑准备。",
+    "tag": "pending",
+    "country": "日本",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "皮克斯世界沉浸式展览延期至10月 东京城市观景台动画特展同步开放",
+    "category": "文娱信息",
+    "sub_category": "文娱信息",
+    "summary": "东京的皮克斯世界展（Pixar World Exhibition）沉浸式体验活动持续至2026年10月12日，通过实景还原《玩具总动员》《怪兽电力公司》等经典皮克斯电影场景，为游客提供身临其境的动画世界体验。与此同时，东京城市观景台推出《药屋少女的呢喃》动画联名沉浸式体验（8月1日至10月26日），以夜空与舞为主题在海拔250米高空呈现日本首次公开的展品。",
+    "source": "东京观光财团",
+    "impact": "动漫IP与旅游场景的深度融合是日本文旅产业的独特优势，此类沉浸式体验有效延长了游客停留时间，推动了圣地巡礼型旅游消费。",
+    "source_url": "https://www.pixarworld.jp/",
+    "source_url_google": "https://www.google.com/search?q=皮克斯+世界展+东京+2026+沉浸式",
+    "key_figures": [
+      "皮克斯展延至10月12日",
+      "药屋少女展8月1日-10月26日",
+      "海拔250米观景台"
+    ],
+    "travel_advisory": "暑期为展览高峰期，建议工作日前往以减少排队等候时间；展览需提前在线购票。",
+    "tag": "pending",
+    "country": "日本",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "韩亚航空3月底起大幅增频中国航线 每周新增28班次达161班",
+    "category": "航线交通",
+    "sub_category": "航线交通",
+    "summary": "韩亚航空自2026年3月29日起大幅扩充中国航线运力，每周新增28个班次，增幅达20%，使中国航线总班次达到每周161班，覆盖18条航线。5月进一步增频，其中仁川至长春增至每周9班、仁川至延吉增至每周8班。济州航空也于4月新开仁川至宜昌和大邱至桂林等新航线，并计划恢复仁川至石家庄、釜山至石家庄、济州至北京首都等航线。",
+    "source": "韩亚航空",
+    "impact": "中韩航空运力的大幅增加反映了两国旅游市场的强劲需求，为中国旅客赴韩提供了更灵活的航班选择，同时也有助于降低机票价格。",
+    "source_url": "https://flyasiana.com/C/CN/ZH/contents/route-map",
+    "source_url_google": "https://www.google.com/search?q=韩亚航空+2026+中国航线+增频+161班",
+    "key_figures": [
+      "每周161班次",
+      "增幅20%",
+      "覆盖18条航线",
+      "仁川-长春每周9班"
+    ],
+    "travel_advisory": "中韩航线班次充裕，旅客可享受更灵活的出行时间选择和更具竞争力的票价。",
+    "tag": "pending",
+    "country": "韩国",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "济州航空新开通仁川至宜昌大邱至桂林等中韩航线",
+    "category": "航线交通",
+    "sub_category": "航线交通",
+    "summary": "韩国低成本航空济州航空于2026年4月新开多条中韩航线，包括仁川至宜昌和大邱至桂林航线，进一步拓展中国二线城市网络。同时计划恢复仁川至石家庄、釜山至石家庄以及济州至北京首都等航线。此举标志着韩国廉航对中国市场的持续加码，覆盖更多中国内陆城市，为中韩民间交流提供更加便捷的空中通道。",
+    "source": "济州航空",
+    "impact": "济州航空向中国二线城市扩张有助于分流首尔仁川单一枢纽的客流压力，为内陆城市居民提供直飞韩国的便利，促进地方间旅游交流。",
+    "source_url": "https://www.jejuair.net/",
+    "source_url_google": "https://www.google.com/search?q=济州航空+2026+新开+仁川+宜昌+大邱+桂林",
+    "key_figures": [
+      "新开仁川-宜昌航线",
+      "新开大邱-桂林航线",
+      "计划恢复3条航线"
+    ],
+    "travel_advisory": "中国二线城市旅客可关注济州航空新开航线首航特惠，大邱航线适合深度游览韩国东南部地区。",
+    "tag": "pending",
+    "country": "韩国",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "韩国团体游客签证豁免政策延长至2026年底 入境后可分散活动",
+    "category": "出入境政策",
+    "sub_category": "出入境政策",
+    "summary": "韩国针对中国等6国团体游客的临时签证豁免政策已延长至2026年12月31日。三人及以上通过指定旅行社组织的旅游团可免签入境韩国，最长停留15天，且入境后团队成员可分散自由活动，无需全程跟团。此外，上海领区C-3-9一般旅游签证的审批时间已于8月10日缩短至14个工作日，较7月的20个工作日大幅提速。",
+    "source": "韩国法务部出入国管理厅",
+    "impact": "团体免签政策的延续和签证审批提速双重利好，降低了赴韩旅游的门槛和时间成本，预计将进一步刺激中国游客赴韩旅游热情。",
+    "source_url": "https://www.immigration.go.kr/",
+    "source_url_google": "https://www.google.com/search?q=韩国+团体游客+签证豁免+延长+2026年底",
+    "key_figures": [
+      "延长至2026年12月31日",
+      "最长停留15天",
+      "上海领区审批缩短至14个工作日"
+    ],
+    "travel_advisory": "符合团体免签条件的旅客请选择指定旅行社组团；个人旅游签申请者建议提前预约上海领区递签。",
+    "tag": "pending",
+    "country": "韩国",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "韩国上海领区旅游签证审批提速至14天 14城居民享十年多次签",
+    "category": "出入境政策",
+    "sub_category": "出入境政策",
+    "summary": "韩国驻上海总领事馆自2026年8月10日起将C-3-9一般旅游签证审批时间缩短至14个工作日，此前7月曾延长至20个工作日。同时，自3月30日起，有赴韩经历的中国公民可申请5年多次往返签证且免资产和在职证明；北京、上海、广州、深圳等14个城市户籍居民更可享最长10年有效期的多次往返签证。济州岛直飞或邮轮到达仍享30天免签。",
+    "source": "韩国驻上海总领事馆",
+    "impact": "签证便利化措施的叠加效应显著：审批提速加多次往返放宽加济州免签，使赴韩签证成为亚洲最便利的签证体系之一，有力支撑了赴韩游客的持续增长。",
+    "source_url": "http://overseas.mofa.go.kr/shanghai-zh/",
+    "source_url_google": "https://www.google.com/search?q=韩国+上海+签证+审批+14个工作日+14城+十年多次签",
+    "key_figures": [
+      "审批14个工作日",
+      "14城10年多次签",
+      "有赴韩经历可免资产证明申请5年多次"
+    ],
+    "travel_advisory": "14城户籍居民可申请10年多次签大幅降低出行成本；济州岛免签需直飞或邮轮到达，不可经首尔中转。",
+    "tag": "pending",
+    "country": "韩国",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "韩国7月接待外国游客209万人次同比增长20.8% 中国游客居首",
+    "category": "旅游趋势",
+    "sub_category": "旅游趋势",
+    "summary": "韩国2026年7月接待外国游客209万人次，同比增长20.8%。中国游客以77.7万人次居首，其次是日本33万、台湾26.1万、美国15万、香港7.6万。与2019年同期相比，中国大陆和日本游客分别增长49.6%和20.2%，台湾、美国和香港游客增幅更大，分别为129.4%、54.4%和29.1%。1-7月累计入境1280万人次，同比增长21.3%。",
+    "source": "韩国文化体育观光部",
+    "impact": "韩国旅游市场复苏势头强劲，全面超越疫情前水平，客源结构更加多元化。中国游客的强劲回归是最大驱动力，短途出境游需求持续旺盛。",
+    "source_url": "https://www.mcst.go.kr/",
+    "source_url_google": "https://www.google.com/search?q=韩国+2026年7月+外国游客+209万+增长20.8%",
+    "key_figures": [
+      "7月游客209万(+20.8%)",
+      "中国77.7万居首",
+      "1-7月累计1280万(+21.3%)"
+    ],
+    "travel_advisory": "韩国旅游市场火爆，热门景点和住宿建议提前预订；首尔明洞、弘大等商圈8月有夏季促销活动。",
+    "tag": "pending",
+    "country": "韩国",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "仁川国际机场上半年国际客流量全球第一 航班恢复率达111.8%",
+    "category": "旅游趋势",
+    "sub_category": "旅游趋势",
+    "summary": "仁川国际机场在2026年上半年以最高的国际旅客吞吐量位居全球机场首位，韩国航班恢复率达到疫情前的111.8%，超过疫情前水平。这一成绩得益于韩国签证便利化政策的持续推进、K-pop文化驱动的旅游热潮、以及多条新航线的开通。仁川机场的枢纽地位进一步巩固，成为东北亚最重要的航空中转站之一。",
+    "source": "仁川国际机场公社",
+    "impact": "仁川机场的全球领先地位提升了韩国作为旅游目的地的整体竞争力，便利的中转服务也吸引了更多东南亚和欧美旅客经首尔中转赴东亚各地。",
+    "source_url": "https://www.airport.kr/",
+    "source_url_google": "https://www.google.com/search?q=仁川机场+2026上半年+国际客流+全球第一",
+    "key_figures": [
+      "航班恢复率111.8%",
+      "上半年国际客流全球第一"
+    ],
+    "travel_advisory": "仁川机场中转便利度高，可利用中转时间在首尔市区短途游览；机场免税店购物体验持续升级。",
+    "tag": "pending",
+    "country": "韩国",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "韩国K-文化微消费趋势兴起 Z世代引领小份化旅游消费",
+    "category": "本地生活",
+    "sub_category": "本地生活",
+    "summary": "2026年韩国消费市场中微消费（Micro-consumption）趋势显著上升，受单身家庭增加、高通胀和Z世代消费观念转变驱动。韩国单人家庭已突破1000万户，催生了单人份产品和服务的蓬勃发展。旅游领域同样受到影响：小份量美食体验、单日城市漫步（City Walk）、独立书店打卡、一人食餐厅等成为年轻旅客新宠。电商平台已占韩国零售总额的近半数。",
+    "source": "韩国消费趋势研究所",
+    "impact": "微消费趋势为旅游从业者提供了新的产品开发方向，适合单人旅客的小份量、高性价比、碎片化旅游产品将成为新的增长点。",
+    "source_url": "https://www.korea.kr/",
+    "source_url_google": "https://www.google.com/search?q=韩国+微消费+趋势+Z世代+2026",
+    "key_figures": [
+      "单人家庭超1000万户",
+      "电商占零售总额近50%"
+    ],
+    "travel_advisory": "赴韩自由行旅客可关注单人份美食和City Walk路线，首尔的延南洞、圣水洞等新兴街区适合独自探索。",
+    "tag": "pending",
+    "country": "韩国",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "昌德宫秋季月光夜游特别活动即将启幕 探索朝鲜王宫夜景",
+    "category": "景点活动",
+    "sub_category": "景点活动",
+    "summary": "韩国首尔昌德宫将于2026年秋季推出特别月光夜游（Changdeokgung Moonlight Tour）活动，邀请游客在夜色中探索这座朝鲜王朝皇家宫殿。活动由专业导游带领，途经禁苑（后苑）的古老花园和宫殿建筑群，在月光下感受600年历史的皇家氛围。该活动每年秋季限定举办，名额有限，是首尔最具文化氛围的夜间旅游体验之一。",
+    "source": "韩国文化财厅",
+    "impact": "昌德宫月光夜游是韩国文化旅游的标杆产品，通过夜间开放世界遗产的方式，有效延长了游客在首尔的停留时间和夜间消费。",
+    "source_url": "https://royalpalace.go.kr/",
+    "source_url_google": "https://www.google.com/search?q=昌德宫+月光夜游+2026+秋季",
+    "key_figures": [
+      "秋季限定",
+      "世界遗产夜间开放"
+    ],
+    "travel_advisory": "月光夜游名额有限，建议提前在文化财厅官网预约；9-10月为最佳赏秋时节。",
+    "tag": "pending",
+    "country": "韩国",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "首尔汉江夏季庆典8月1日至16日举行 覆盖汝矣岛蚕室盘浦多区域",
+    "category": "景点活动",
+    "sub_category": "景点活动",
+    "summary": "2026年首尔汉江夏季庆典（Hangang River Festival）于8月1日至16日在汝矣岛、蚕室、盘浦等多个汉江公园举行。活动内容丰富多样，包括宠物船赛、夜间散步、音乐野餐、木偶表演等家庭友好型项目。配合SEOCHO汉江艺术Tour（8月6-30日），游客可在汉江畔享受文化、艺术和自然的完美融合，是体验首尔都市生活的绝佳机会。",
+    "source": "首尔市政府",
+    "impact": "汉江夏季庆典有效激活了首尔的夏季旅游市场，将汉江从城市地理分界线转化为旅游体验核心区，展示了首尔水滨城市的旅游新面貌。",
+    "source_url": "https://hangang.seoul.go.kr/",
+    "source_url_google": "https://www.google.com/search?q=首尔+汉江+夏季庆典+2026+8月",
+    "key_figures": [
+      "8月1-16日",
+      "汝矣岛蚕室盘浦多区域"
+    ],
+    "travel_advisory": "活动期间汉江公园周边交通繁忙，建议乘坐地铁前往；晚间活动需备薄外套。",
+    "tag": "pending",
+    "country": "韩国",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "BIGBANG出道20周年世界巡演8月首尔高扬举办 时隔9年团体回归",
+    "category": "文娱信息",
+    "sub_category": "文娱信息",
+    "summary": "韩国传奇男团BIGBANG宣布将于8月21日至23日在高阳体育场举行出道20周年世界巡演演唱会，这是他们时隔9年再次以团体名义举办的正式世界巡演。演唱会由权志龙、太阳、大声三人体制进行，将演唱31首经典歌曲。同期aespa于8月7-8日在首尔高尺天空穹顶举行巡演，NCT DREAM于8月22-23日在仁川Inspire Arena举办10周年演唱会。",
+    "source": "YG Entertainment",
+    "impact": "K-pop顶级团体的密集演唱会持续吸引全球粉丝赴韩观演，演唱会经济带动了住宿、餐饮、交通等相关消费成倍增长，是韩国文旅融合的成功典范。",
+    "source_url": "https://yglife.com/",
+    "source_url_google": "https://www.google.com/search?q=BIGBANG+20周年+世界巡演+2026+8月+首尔",
+    "key_figures": [
+      "8月21-23日高阳体育场",
+      "31首歌曲",
+      "时隔9年团体巡演"
+    ],
+    "travel_advisory": "演唱会期间首尔住宿价格大幅上涨，建议提前数月预订；门票通过Yes24、Interpark等官方平台购买。",
+    "tag": "pending",
+    "country": "韩国",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "迪拜航空7月起开通每日直飞曼谷航线 9月增至每日两班",
+    "category": "航线交通",
+    "sub_category": "航线交通",
+    "summary": "迪拜航空（flydubai）于2026年7月1日正式开通迪拜至曼谷每日直飞航线，并计划自9月15日起增至每日两班。同时，沙特阿拉伯新航司利雅得航空（Riyadh Air）已获得每日利雅得至曼谷的航班时刻，将于10月25日冬季航季开始运营。此外，维珍航空将于10月18日开通伦敦希思罗至普吉岛每周三班直飞，法航继续运营巴黎至普吉每周三班。",
+    "source": "flydubai",
+    "impact": "中东航司大举进军泰国市场，反映了泰国作为国际旅游枢纽的吸引力持续增强，也为来自中东和欧洲的长途旅客提供了更多直飞选择。",
+    "source_url": "https://www.flydubai.com/",
+    "source_url_google": "https://www.google.com/search?q=flydubai+Dubai+Bangkok+daily+flights+2026",
+    "key_figures": [
+      "7月1日起每日1班",
+      "9月15日起每日2班",
+      "利雅得航空10月加入"
+    ],
+    "travel_advisory": "中东转机赴泰旅客可选择更多直飞方案；普吉岛新增伦敦直飞便利欧洲旅客。",
+    "tag": "pending",
+    "country": "泰国",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "泰国航空全面恢复国际航线网络 阿姆斯特丹奥克兰等陆续复航",
+    "category": "航线交通",
+    "sub_category": "航线交通",
+    "summary": "泰国航空在2026年大规模扩展国际航线网络：7月1日恢复曼谷至阿姆斯特丹直飞；计划下半年重启曼谷至奥克兰航线；印度航线增频至德里每周28班、新增阿姆利则、斋浦尔和高知；中国市场恢复曼谷至长沙（5月10日已复航）、深圳和重庆（下半年），并倍增北京和广州至每周14班；欧洲方面巴黎12月起每日两班、慕尼黑增至每周10班、苏黎世增至每周11班。",
+    "source": "泰国航空",
+    "impact": "泰航的全面航线扩张将显著增强曼谷作为东南亚航空枢纽的竞争力，特别是欧洲和南亚市场的运力增长，有望吸引更多长途旅客赴泰旅游。",
+    "source_url": "https://www.thaiairways.com/",
+    "source_url_google": "https://www.google.com/search?q=Thai+Airways+2026+international+routes+expansion",
+    "key_figures": [
+      "德里每周28班",
+      "巴黎12月起每日2班",
+      "曼谷-长沙已复航"
+    ],
+    "travel_advisory": "泰航航线恢复带来丰富选择，欧洲旅客赴泰可从多个城市直飞；中国旅客关注下半年深圳重庆复航。",
+    "tag": "pending",
+    "country": "泰国",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "泰国调整多国免签停留期限从60天缩短至30天 防止签证权益滥用",
+    "category": "出入境政策",
+    "sub_category": "出入境政策",
+    "summary": "泰国内阁于2026年5月批准签证政策重大调整：此前93个国家和地区享有的60天免签待遇已取消，包括中国在内的59个国家和地区游客现享受30天旅游免签。新政策严格限定免签用途为纯旅游活动，任何形式的直播经营、工作或长期商务活动均被禁止，违规者将被遣返并列入入境黑名单。超30天停留需提前办理电子签证。",
+    "source": "泰国内阁",
+    "impact": "免签缩短至30天对中国游客影响有限（多数游客行程在2周以内），但有效遏制了部分人利用免签在泰长期居留或从事非法工作的现象，使签证政策更加规范。",
+    "source_url": "https://www.thaigov.go.th/",
+    "source_url_google": "https://www.google.com/search?q=泰国+免签+60天缩短至30天+2026",
+    "key_figures": [
+      "59国30天免签",
+      "禁止直播等商务活动",
+      "违规遣返加黑名单"
+    ],
+    "travel_advisory": "赴泰旅游免签30天需持有效护照（6个月以上）、往返机票、酒店订单及足够现金；深度游或长期停留需提前办电子签。",
+    "tag": "pending",
+    "country": "泰国",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "泰国TDAC数字入境卡全面实施 抵泰前72小时须在线填写",
+    "category": "出入境政策",
+    "sub_category": "出入境政策",
+    "summary": "泰国数字入境卡（TDAC）制度已全面实施，取代原有的TM6纸质入境卡。所有外国旅客必须在抵达泰国前72小时内在线填写TDAC，包括健康申报信息。该制度适用于所有入境方式。同时，航空入境旅客需缴纳300泰铢旅游税（已含在机票中），陆路或海路入境收取150泰铢。自2026年6月20日起，机场旅客服务费从730泰铢调涨至1120泰铢。",
+    "source": "泰国移民局",
+    "impact": "TDAC数字化入境流程提升了通关效率，但也增加了旅客行前准备的环节。旅游税和机场服务费的上涨增加了赴泰旅行的隐性成本。",
+    "source_url": "https://tdac.immigration.go.th/",
+    "source_url_google": "https://www.google.com/search?q=泰国+TDAC+数字入境卡+72小时+在线填写",
+    "key_figures": [
+      "抵泰前72小时填写",
+      "航空300泰铢旅游税",
+      "机场服务费涨至1120泰铢"
+    ],
+    "travel_advisory": "赴泰旅客请务必在出发前72小时内在线填写TDAC，未填写可能被拒绝登机或入境。",
+    "tag": "pending",
+    "country": "泰国",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "泰国1至8月接待外国游客超1850万 旅游收入近9000亿泰铢",
+    "category": "旅游趋势",
+    "sub_category": "旅游趋势",
+    "summary": "2026年1月1日至8月1日期间，泰国共接待外国游客超过1850万人次，创造旅游收入超过8960亿泰铢。但与2025年同期相比下降3.19%，主要受中东冲突导致航线中断、印度签证政策变化及航线运力缩减28.6%、泰南边境安全顾虑、以及中国市场波动等因素影响。不过中国游客4月份曾出现31.9%的同比增长，西欧长途市场表现出较强韧性。",
+    "source": "泰国旅游局(TAT)",
+    "impact": "泰国旅游业面临增速放缓挑战，但总量仍保持高位。客源结构正在调整中，西欧长途市场因新航线开通而增长，韩国游客周环比激增19.85%。",
+    "source_url": "https://www.tat.or.th/",
+    "source_url_google": "https://www.google.com/search?q=泰国+2026年+1-8月+外国游客+1850万+旅游收入",
+    "key_figures": [
+      "1-8月游客超1850万",
+      "收入8960亿泰铢",
+      "同比下降3.19%",
+      "韩国游客周增19.85%"
+    ],
+    "travel_advisory": "泰国旅游整体安全，但泰南边境三省需谨慎前往；关注TAT官方旅游安全提示。",
+    "tag": "pending",
+    "country": "泰国",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "泰国旅游局下调全年游客预期至3000至3400万 较原目标减少18%",
+    "category": "旅游趋势",
+    "sub_category": "旅游趋势",
+    "summary": "泰国旅游局（TAT）将2026年全年国际游客预测从最初目标下调18%，现预计接待3000万至3400万人次。完全恢复至危机前旅游水平最早要到2030年。TAT同时公布2027年旅游战略主题为转型之年，目标收入增长5%，将聚焦吸引高价值旅客，推广真实本地体验和社区消费。这一策略转向标志着泰国旅游从追求数量向追求质量和可持续方向的转型。",
+    "source": "泰国旅游局(TAT)",
+    "impact": "TAT的战略调整反映了后疫情时代泰国旅游业的务实态度，聚焦高价值旅客有助于提升人均消费，推动旅游产业向高端化、可持续方向升级。",
+    "source_url": "https://www.tat.or.th/",
+    "source_url_google": "https://www.google.com/search?q=泰国旅游局+下调+2026+游客预期+3000万+3400万",
+    "key_figures": [
+      "预期3000-3400万人次",
+      "较原目标减少18%",
+      "2027年目标收入增长5%"
+    ],
+    "travel_advisory": "泰国旅游市场成熟度提升，建议旅客深入体验地方文化和社区旅游项目，而非仅限传统热门城市。",
+    "tag": "pending",
+    "country": "泰国",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "泰国机场旅客服务费6月20日起涨至1120泰铢 酒精销售新规同步实施",
+    "category": "本地生活",
+    "sub_category": "本地生活",
+    "summary": "自2026年6月20日起，泰国主要国际机场的旅客服务费从730泰铢上调至1120泰铢（约合人民币230元），涨幅超过50%。该费用已包含在机票价格中，旅客无需额外支付。此次调整旨在覆盖机场设施升级和服务改善的成本。此外，泰国自8月23日起永久调整酒精销售时间为11:00至24:00，此前部分时段限制更为严格，为旅客餐饮消费提供更大灵活性。",
+    "source": "泰国民航局",
+    "impact": "机场服务费上涨将小幅增加赴泰旅行的隐性成本，但对整体旅游消费影响有限。酒精销售时间的调整则使游客在餐饮消费方面更加灵活。",
+    "source_url": "https://www.caat.co.th/",
+    "source_url_google": "https://www.google.com/search?q=泰国+机场+旅客服务费+涨+1120泰铢+2026",
+    "key_figures": [
+      "从730涨至1120泰铢",
+      "涨幅超50%",
+      "酒精销售时间11:00-24:00"
+    ],
+    "travel_advisory": "机场服务费已含在机票中无需额外支付；注意泰国酒精销售新规时间11:00-24:00。",
+    "tag": "pending",
+    "country": "泰国",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "华欣迷你热气球节8月举办 海滨小城变身浪漫天空之城",
+    "category": "景点活动",
+    "sub_category": "景点活动",
+    "summary": "2026年迷你热气球节（Mini Balloon Festival）于8月7日至9日在华欣附近的Pak Nam Pran海滩举行。五彩斑斓的小型热气球升空、夜间光雕展演和现场音乐表演为游客呈现浪漫的视觉盛宴。同期同地还举办第9届日晒鱿鱼与海鲜节，游客可品尝当地著名的日晒鱿鱼和新鲜海鲜，将美食体验与视觉享受完美结合。",
+    "source": "泰国旅游局",
+    "impact": "华欣和巴吞他尼等非传统旅游城市通过特色活动吸引游客，有效分流了曼谷和普吉岛的客流压力，推动了泰国二线城市旅游发展。",
+    "source_url": "https://www.tourismthailand.org/",
+    "source_url_google": "https://www.google.com/search?q=泰国+迷你热气球节+2026+华欣+Pak+Nam+Pran",
+    "key_figures": [
+      "8月7-9日三天",
+      "Pak Nam Pran海滩"
+    ],
+    "travel_advisory": "华欣距曼谷约3小时车程，可结合海鲜节一并体验；活动期间海边住宿建议提前预订。",
+    "tag": "pending",
+    "country": "泰国",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "大城府世界遗产古城夜跑活动启动 体育与文化完美融合",
+    "category": "景点活动",
+    "sub_category": "景点活动",
+    "summary": "2026年大城府夜跑活动（Ayutthaya Night Run）于8月1-2日在世界文化遗产玛哈泰寺举行。活动创新性地将夜间跑步与灯光装置、文化体验、美食和现场娱乐相结合，让参与者在古城中享受独特的夜间运动体验。跑者可穿越佛塔古迹群，在灯光映照下感受大城王朝的历史余韵，是体育旅游与文化体验融合的典范。",
+    "source": "泰国体育局",
+    "impact": "古城夜跑活动将世界遗产转化为夜间旅游场景，开创了体育加文化加旅游的新模式，为泰国历史城市旅游注入了活力。",
+    "source_url": "https://www.sat.th/",
+    "source_url_google": "https://www.google.com/search?q=大城府+夜跑+玛哈泰寺+2026+8月",
+    "key_figures": [
+      "8月1-2日",
+      "玛哈泰寺世界遗产"
+    ],
+    "travel_advisory": "大城府距曼谷约1.5小时车程，可安排一日游或两日游；夜间跑步注意防蚊和补水。",
+    "tag": "pending",
+    "country": "泰国",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "国际默剧艺术节8月落地佛丕府 世界级表演推动地方文化国际化",
+    "category": "文娱信息",
+    "sub_category": "文娱信息",
+    "summary": "国际默剧艺术节于2026年8月21日至23日在泰国佛丕府（Phetchaburi）举行。活动汇集世界级默剧表演、互动工作坊及艺术家交流环节，旨在通过无声艺术形式推广默剧文化。这是该艺术节首次在泰国举办，选址佛丕府这一历史悠久的文化古城，将国际艺术与地方文化结合。同期普吉岛举办Feel All the Feelings文化体验活动（8月22-24日），展示娘惹文化。",
+    "source": "泰国文化部",
+    "impact": "国际艺术节落地泰国二线城市有助于提升地方文化国际化水平，吸引文化类旅客深度探索泰国非传统旅游目的地。",
+    "source_url": "https://www.m-culture.go.th/",
+    "source_url_google": "https://www.google.com/search?q=国际默剧艺术节+2026+泰国+佛丕府",
+    "key_figures": [
+      "8月21-23日",
+      "佛丕府"
+    ],
+    "travel_advisory": "佛丕府距曼谷约2.5小时车程，可结合华欣一起游览；艺术节活动多为免费。",
+    "tag": "pending",
+    "country": "泰国",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "迪士尼冒险号邮轮3月起新加坡全年运营 巩固亚洲邮轮枢纽地位",
+    "category": "航线交通",
+    "sub_category": "航线交通",
+    "summary": "迪士尼邮轮旗下的迪士尼冒险号（Disney Adventure）于2026年3月起以新加坡为母港开始全年运营，这是迪士尼首次将全年邮轮部署在亚洲。该邮轮从新加坡出发，航线覆盖东南亚多个目的地，为家庭旅客提供了全新的度假方式。此举不仅丰富了新加坡的旅游产品组合，也进一步巩固了新加坡作为亚洲顶级邮轮枢纽的地位。",
+    "source": "迪士尼邮轮",
+    "impact": "迪士尼邮轮全年部署新加坡将吸引更多家庭旅客选择新加坡作为度假起点，带动新加坡邮轮经济和周边消费增长。",
+    "source_url": "https://disneycruise.disney.go.com/",
+    "source_url_google": "https://www.google.com/search?q=Disney+Adventure+cruise+Singapore+2026+year+round",
+    "key_figures": [
+      "2026年3月起全年运营",
+      "新加坡为母港"
+    ],
+    "travel_advisory": "迪士尼邮轮热门航次建议提前半年以上预订；新加坡邮轮中心交通便利，可结合市区游览。",
+    "tag": "pending",
+    "country": "新加坡",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "新加坡2026年国际游客增长预期从4.5%大幅下调至0.5%",
+    "category": "航线交通",
+    "sub_category": "航线交通",
+    "summary": "BMI国家风险与产业研究机构将新加坡2026年国际游客增长预期从此前的4.5%大幅下调至仅0.5%，预计全年接待游客约1700万人次。这一下调主要归因于美伊冲突对区域旅行需求的抑制效应。新加坡已连续四个月出现游客下降，7月份同比下滑2.9%。中东冲突导致航线改道、旅客心理不确定性增加、以及海湾客源市场经济受压。",
+    "source": "BMI Research",
+    "impact": "游客增长预期大幅下调反映了地缘政治对旅游业的深层影响，新加坡作为高度依赖国际旅客的城市国家面临较大压力，需加速开发替代客源市场。",
+    "source_url": "https://www.fitchsolutions.com/",
+    "source_url_google": "https://www.google.com/search?q=新加坡+2026+游客增长+下调+0.5%+BMI",
+    "key_figures": [
+      "增长预期从4.5%降至0.5%",
+      "预计全年1700万人次",
+      "7月同比下降2.9%"
+    ],
+    "travel_advisory": "新加坡仍是安全稳定的旅游目的地，游客量略降意味着景点排队时间缩短，可享受更舒适的游览体验。",
+    "tag": "pending",
+    "country": "新加坡",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "印度旅客上半年贡献超60万人次 消费额居新加坡各客源国之冠",
+    "category": "旅游趋势",
+    "sub_category": "旅游趋势",
+    "summary": "印度市场成为新加坡旅游的重要增长极。2026年上半年，新加坡接待超过60万印度旅客，呈现持续增长态势。印度旅客的消费力尤为突出：2026年第一季度贡献3.74亿新元消费额，同比增长8%，在所有客源市场中位居第一。新加坡旅游局（STB）正积极扩大与印度的合作举措，进一步提升新加坡对印度旅客的吸引力。",
+    "source": "新加坡旅游局(STB)",
+    "impact": "印度旅客的高消费力使其成为新加坡最有价值的客源市场之一，STB针对印度市场的精准营销策略值得其他目的地借鉴。",
+    "source_url": "https://www.stb.gov.sg/",
+    "source_url_google": "https://www.google.com/search?q=印度+旅客+新加坡+2026上半年+60万+消费+第一",
+    "key_figures": [
+      "上半年超60万印度旅客",
+      "Q1消费3.74亿新元(+8%)",
+      "消费额居各客源国第一"
+    ],
+    "travel_advisory": "新加坡对印度市场推出多项优惠活动，中国旅客可关注同期促销活动。",
+    "tag": "pending",
+    "country": "新加坡",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "新加坡MICE与邮轮旅游双轮驱动 打造亚洲商务休闲旅游首选地",
+    "category": "旅游趋势",
+    "sub_category": "旅游趋势",
+    "summary": "新加坡正通过MICE（会议、奖励旅游、大会、展览）和邮轮旅游两大板块巩固其亚洲商务休闲旅游首选目的地地位。迪士尼冒险号邮轮的全年部署为邮轮市场注入强劲动力。MICE方面，新加坡持续升级滨海湾金沙和樟宜展览中心等场馆设施，并积极竞标国际大型会议。邮轮与MICE的协同发展使新加坡突破了传统家庭旅游的局限。",
+    "source": "新加坡旅游局",
+    "impact": "MICE加邮轮的双引擎模式为新加坡旅游提供了差异化竞争优势，有助于抵御休闲旅游市场的周期性波动。",
+    "source_url": "https://www.stb.gov.sg/",
+    "source_url_google": "https://www.google.com/search?q=新加坡+MICE+邮轮+2026+商务休闲+旅游",
+    "key_figures": [
+      "迪士尼冒险号全年运营",
+      "MICE场馆持续升级"
+    ],
+    "travel_advisory": "商务旅客可关注新加坡MICE相关活动的参展和参会机会；邮轮旅客建议提前预订热门航次。",
+    "tag": "pending",
+    "country": "新加坡",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "新加坡2026年1月起实施禁止登机指令 强化入境前安全审查",
+    "category": "出入境政策",
+    "sub_category": "出入境政策",
+    "summary": "新加坡移民与关卡局（ICA）自2026年1月30日起实施禁止登机指令（No-Boarding Directive），要求航空公司登机前根据ICA数据筛查旅客。未提交新加坡入境卡（SGAC）或护照有效期不足6个月的旅客可能在出发机场被拒绝登机。所有外国旅客须在入境前3天内在线提交SGAC电子健康申报，通过ICA官网或MyICA手机App完成。",
+    "source": "新加坡移民与关卡局(ICA)",
+    "impact": "禁止登机指令将入境审查前移至出发地机场，提升了新加坡边境安全水平，但也增加了旅客行前准备的合规要求，漏填SGAC可能导致行程受阻。",
+    "source_url": "https://www.ica.gov.sg/",
+    "source_url_google": "https://www.google.com/search?q=新加坡+禁止登机指令+2026+SGAC+入境卡",
+    "key_figures": [
+      "1月30日起实施",
+      "入境前3天提交SGAC",
+      "护照有效期需超6个月"
+    ],
+    "travel_advisory": "赴新旅客务必在出发前3天内在线填写SGAC电子入境卡，否则可能被拒绝登机；护照有效期需至少6个月以上。",
+    "tag": "pending",
+    "country": "新加坡",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "新加坡樟宜机场新增自动化通关通道 63国旅客可享快速入境",
+    "category": "出入境政策",
+    "sub_category": "出入境政策",
+    "summary": "新加坡樟宜机场于2026年进一步扩展自动化入境通关通道（Automated Lanes），覆盖来自63个国家的符合条件旅客。首次入境的新旅客需在人工柜台验证生物信息，之后即可直接使用自动化通道快速通关。樟宜机场1-4号航站楼均配备完善的自助通关设施。对于仅在樟宜转机且不离开中转区的旅客，通常无需办理入境手续或填写SGAC。",
+    "source": "樟宜机场集团",
+    "impact": "自动化通关的扩展大幅提升了入境效率，缩短了排队等候时间，体现了新加坡智慧边境建设的成果，提升了旅客第一印象。",
+    "source_url": "https://www.changiairport.com/",
+    "source_url_google": "https://www.google.com/search?q=樟宜机场+自动化通关+2026+63国+快速入境",
+    "key_figures": [
+      "63国旅客可用",
+      "首次需人工验证后自助通关",
+      "T1-T4全覆盖"
+    ],
+    "travel_advisory": "多次入境旅客可充分利用自动化通道快速通关；转机旅客如不离开中转区则无需填写SGAC。",
+    "tag": "pending",
+    "country": "新加坡",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "新加坡夜市艺术节8月21日点亮Bras Basah历史街区 神话与传说主题",
+    "category": "景点活动",
+    "sub_category": "景点活动",
+    "summary": "新加坡夜市艺术节（Singapore Night Festival）2026于8月21日至9月5日在Bras Basah.Bugis历史街区举行，以神话与传说（Myths and Legends）为主题。活动期间，历史建筑将被灯光艺术作品点亮，街头表演、节日村落和互动装置遍布街巷。配合Pasar MAD-lam周末市集（8月21日起连续三个周末在Capitol Singapore户外广场），提供本地创意商品和美食。",
+    "source": "新加坡国家遗产局",
+    "impact": "夜市艺术节将新加坡的历史文化街区转化为夜间文旅体验空间，有效延长了游客的游览时间和消费场景，是城市夜间经济开发的典范。",
+    "source_url": "https://www.nightfest.sg/",
+    "source_url_google": "https://www.google.com/search?q=新加坡+夜市艺术节+2026+8月+Bras+Basah",
+    "key_figures": [
+      "8月21日-9月5日",
+      "神话与传说主题",
+      "周末市集连续三周"
+    ],
+    "travel_advisory": "活动期间免费参观，建议傍晚至夜间前往；可结合附近国家博物馆和艺术馆一起游览。",
+    "tag": "pending",
+    "country": "新加坡",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "滨海湾花园百合花展化身古埃及景观 沉浸式体验跨越千年文明",
+    "category": "景点活动",
+    "sub_category": "景点活动",
+    "summary": "滨海湾花园（Gardens by the Bay）花穹于8月21日至9月27日举办Lilytopia百合花展，将花穹变身为古埃及主题景观。展览融合百合花、睡莲与古埃及丹德拉神庙的复刻场景，打造穿越时空的沉浸式花卉艺术体验。同期花穹还将举办F1展览在亚洲的首次亮相，以及国家美术馆的Art Remembers展览（8月21日起），丰富了新加坡8月的文娱活动矩阵。",
+    "source": "滨海湾花园",
+    "impact": "滨海湾花园通过主题化花卉展览持续创新，将自然景观与文化遗产结合，巩固了新加坡花园城市的旅游品牌形象。",
+    "source_url": "https://www.gardensbythebay.com.sg/",
+    "source_url_google": "https://www.google.com/search?q=滨海湾花园+Lilytopia+百合花展+2026+古埃及",
+    "key_figures": [
+      "8月21日-9月27日",
+      "古埃及主题",
+      "花穹展厅"
+    ],
+    "travel_advisory": "花展期间滨海湾花园游客较多，建议工作日前往；可购买年票或联票更划算。",
+    "tag": "pending",
+    "country": "新加坡",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "新加坡小贩中心美食文化成旅游名片 麦士威与牛车水综合体最受推荐",
+    "category": "本地生活",
+    "sub_category": "本地生活",
+    "summary": "新加坡小贩中心（Hawker Centre）文化持续成为吸引国际游客的独特名片。2026年最受推荐的小贩中心包括麦士威熟食中心（毗邻牛车水，氛围热闹）和牛车水综合体熟食中心（全岛最大、超260个摊位）。一份小贩中心餐食仅需3.5-8新元，海南鸡饭约3.5新元。独特的Chope文化（用纸巾占位）也成为游客体验的乐趣之一。",
+    "source": "新加坡旅游局",
+    "impact": "小贩中心以极高的性价比和地道的美食体验，成为新加坡旅游的独特吸引力，也是UNESCO认可的人类非物质文化遗产。",
+    "source_url": "https://www.nea.gov.sg/",
+    "source_url_google": "https://www.google.com/search?q=新加坡+小贩中心+Maxwell+Chinatown+Complex+2026",
+    "key_figures": [
+      "一餐3.5-8新元",
+      "牛车水综合体超260摊位",
+      "海南鸡饭3.5新元"
+    ],
+    "travel_advisory": "体验小贩中心建议错峰用餐（11点前或14点后）；记得先Chope占位再去买食物。",
+    "tag": "pending",
+    "country": "新加坡",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "马来西亚上半年接待国际游客超2100万人次 同比增长2.5%",
+    "category": "航线交通",
+    "sub_category": "航线交通",
+    "summary": "马来西亚2026年上半年接待超过2100万国际游客，同比增长2.5%。尽管增速为疫情后复苏以来最低，主要受中东地缘紧张导致4111个航班取消的影响，但整体游客量仍保持增长。来自26个关键客源市场（包括部分欧洲国家和印度）出现下降。Tourism Malaysia正加大对印度市场的推广力度，维持全年210万印度游客的目标不变。",
+    "source": "马来西亚旅游局",
+    "impact": "马来西亚旅游市场在疫情后恢复进入瓶颈期，增速放缓反映了地缘政治对长途旅行的制约，需要新的增长动力来突破当前局面。",
+    "source_url": "https://www.tourism.gov.my/",
+    "source_url_google": "https://www.google.com/search?q=马来西亚+2026上半年+国际游客+2100万+增长2.5%",
+    "key_figures": [
+      "上半年超2100万(+2.5%)",
+      "4111个航班被取消",
+      "26个关键市场下降"
+    ],
+    "travel_advisory": "马来西亚旅游设施完善，上半年游客增长稳定；可关注9月MATTA展会优惠。",
+    "tag": "pending",
+    "country": "马来西亚",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "亚航发布马来西亚国庆周出行预警 吉隆坡机场临时空域管制",
+    "category": "航线交通",
+    "sub_category": "航线交通",
+    "summary": "亚航（AirAsia）针对马来西亚第69届国庆日（8月31日）发布旅行预警，8月26-28日及29日、31日期间，吉隆坡终端管制区将进行国庆阅兵飞行表演排练和正式表演，导致临时空域关闭。预计吉隆坡国际机场（KLIA）和梳邦机场在此期间交通压力显著增加。亚航建议旅客提前到达机场、关注航班动态，并选择非高峰时段出行。",
+    "source": "亚航(AirAsia)",
+    "impact": "国庆期间的空域管制是马来西亚每年的常规安排，但对短期旅客的行程安排提出了额外要求，需提前做好时间冗余规划。",
+    "source_url": "https://www.airasia.com/",
+    "source_url_google": "https://www.google.com/search?q=亚航+马来西亚+国庆+空域管制+2026年8月",
+    "key_figures": [
+      "8月26-28日及29、31日管制",
+      "第69届国庆"
+    ],
+    "travel_advisory": "国庆周经吉隆坡转机的旅客请预留充足时间，建议提前3小时到达机场；密切关注亚航官网航班动态通知。",
+    "tag": "pending",
+    "country": "马来西亚",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "马来西亚中国公民免签政策延续至2026年底 63国可用自助通关",
+    "category": "出入境政策",
+    "sub_category": "出入境政策",
+    "summary": "马来西亚对中国公民的免签政策持续有效。自2025年7月17日起，持普通护照或公务护照的中国公民可享受社会访问免签待遇，护照有效期需在6个月以上。该政策延长至2026年12月31日。同时，马来西亚的自助通关系统（Autogate）已扩展至63个国家的旅客，KLIA一号和二号航站楼均可使用。所有旅客须在抵马前3天内在线填写马来西亚数字入境卡（MDAC）。",
+    "source": "马来西亚移民局",
+    "impact": "免签政策延续和自助通关扩展双重便利化措施使马来西亚成为中国旅客最便捷的东南亚目的地之一，有效提升了入境效率和旅游体验。",
+    "source_url": "https://www.imi.gov.my/",
+    "source_url_google": "https://www.google.com/search?q=马来西亚+中国+免签+2026年底+MDAC+自助通关",
+    "key_figures": [
+      "中国公民免签至2026年底",
+      "63国可用自助通关",
+      "MDAC须3天内填写"
+    ],
+    "travel_advisory": "中国公民赴马免签需持有效护照（6个月以上）和往返机票；务必提前3天在线填写MDAC。",
+    "tag": "pending",
+    "country": "马来西亚",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "马来西亚印度公民30天免签持续 三城促销团抢攻印度客源市场",
+    "category": "出入境政策",
+    "sub_category": "出入境政策",
+    "summary": "马来西亚自2023年12月1日起至2026年12月31日对印度公民实施30天免签政策（适用于旅游、商务和探亲），不可延期。为落实这一市场优势，Tourism Malaysia于8月在孟买、金奈和新德里三大城市开展销售推广团，约40家马来西亚旅游业者参与，旨在加强贸易关系和开发新产品。印度位列马来西亚前五大客源市场。同时7月1日起电子签证系统新增照片验证功能。",
+    "source": "马来西亚旅游局",
+    "impact": "针对印度市场的免签加推广组合拳体现了马来西亚精准的客源市场策略，印度市场的巨大潜力有望为马来西亚旅游注入新动力。",
+    "source_url": "https://www.tourism.gov.my/",
+    "source_url_google": "https://www.google.com/search?q=马来西亚+印度+免签+30天+三城促销+2026",
+    "key_figures": [
+      "印度免签至2026年底",
+      "30天不可延期",
+      "三城推广约40家业者参与"
+    ],
+    "travel_advisory": "印度公民赴马免签不可延期；中国公民免签至2026年底，入境时需出示MDAC和足够资金证明。",
+    "tag": "pending",
+    "country": "马来西亚",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "马来西亚目标打造全球穆斯林旅游经济中心 预计2030年市场达3100亿美元",
+    "category": "旅游趋势",
+    "sub_category": "旅游趋势",
+    "summary": "马来西亚将自身定位为穆斯林旅游经济的全球中心，通过整合清真创新、贸易和科技构建完整的穆斯林友好旅游生态。这一战略着眼于全球穆斯林旅客到2030年预计达到2.62亿人次、旅游消费支出约3100亿美元的巨大市场机遇。马来西亚在清真认证、穆斯林祈祷设施、清真餐饮等方面的成熟体系，使其在全球穆斯林旅游市场中具有独特的竞争优势。",
+    "source": "马来西亚旅游部",
+    "impact": "马来西亚发展穆斯林旅游经济的战略定位差异化明显，有望在东南亚旅游竞争中形成独特的市场壁垒，吸引中东和中亚等新兴客源。",
+    "source_url": "https://www.motac.gov.my/",
+    "source_url_google": "https://www.google.com/search?q=马来西亚+穆斯林+旅游经济+中心+2030+3100亿",
+    "key_figures": [
+      "2030年穆斯林旅客预计2.62亿",
+      "旅游消费支出3100亿美元"
+    ],
+    "travel_advisory": "马来西亚的穆斯林友好设施完善，清真餐饮覆盖广泛，适合穆斯林旅客和非穆斯林旅客体验多元文化。",
+    "tag": "pending",
+    "country": "马来西亚",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "马来西亚美食成Visit Malaysia 2026核心卖点 多元文化料理征服全球味蕾",
+    "category": "本地生活",
+    "sub_category": "本地生活",
+    "summary": "Visit Malaysia 2026-2027活动将马来西亚多元文化美食作为核心推广卖点。马来西亚料理融合马来、华人、印度和原住民特色，形成独特的南洋风味体系。招牌菜品包括Nasi Lemak（椰浆饭）、Laksa（叻沙）、Satay（沙爹）和Roti Canai（印度煎饼）。Grab Malaysia推出五星美食指南推荐地道餐厅。万豪执行公寓推出马来西亚之家计划，以现代马来西亚开放餐概念呈现多元美食。",
+    "source": "马来西亚旅游局",
+    "impact": "美食旅游已成为马来西亚差异化竞争的重要抓手，多元文化美食体系为旅客提供了丰富的味蕾体验，有效提升了旅游满意度和重游率。",
+    "source_url": "https://www.tourism.gov.my/",
+    "source_url_google": "https://www.google.com/search?q=马来西亚+美食+Visit+Malaysia+2026+多元文化",
+    "key_figures": [
+      "Grab五星美食指南",
+      "4大文化料理体系"
+    ],
+    "travel_advisory": "马来西亚街头美食安全卫生水平较高，推荐尝试各州特色美食：吉打的Pek Nga、吉兰丹的Laksam、沙巴的Tuaran Mee。",
+    "tag": "pending",
+    "country": "马来西亚",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "马来西亚第69届国庆日庆典在布城举行 全国文化活动精彩纷呈",
+    "category": "景点活动",
+    "sub_category": "景点活动",
+    "summary": "2026年8月31日为马来西亚第69届国庆日（Merdeka Day），主庆典在布城（Putrajaya）的布城广场举行，包括盛大阅兵式、花车巡游、文化表演和烟火表演。全国各州同步举办庆祝活动，家庭友好型活动遍布各大城市。国庆期间也是旅游旺季，各大景点和商场推出特别优惠。此外沙巴节（Sabah Fest）于8月29日启动，为期一个月展示沙巴多元文化和传统。",
+    "source": "马来西亚政府",
+    "impact": "国庆庆典是展示马来西亚多元文化和国家凝聚力的重要窗口，也是旅客深度体验当地文化和社会氛围的绝佳机会。",
+    "source_url": "https://www.malaysia.gov.my/",
+    "source_url_google": "https://www.google.com/search?q=马来西亚+国庆日+69届+2026+布城+庆典",
+    "key_figures": [
+      "8月31日国庆日",
+      "布城主庆典",
+      "沙巴节8月29日启动"
+    ],
+    "travel_advisory": "国庆期间吉隆坡和布城部分道路管制，请使用公共交通；注意空域管制可能影响航班。",
+    "tag": "pending",
+    "country": "马来西亚",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "沙巴节8月29日启动为期一月 展示婆罗洲多元文化遗产",
+    "category": "景点活动",
+    "sub_category": "景点活动",
+    "summary": "沙巴节（Sabah Fest 2026）于2026年8月29日启动，持续一个月，全面展示沙巴州多元文化、传统和社区特色。活动包括原住民文化表演、传统手工艺展示、生态旅游线路推广和美食节等。配合Nature Loving Music Festival 2026同期举办，将自然与音乐结合。旅游套餐涵盖神山（Mount Kinabalu）、婆罗洲野生动物体验和京那巴当岸河巡游等经典项目。",
+    "source": "沙巴旅游局",
+    "impact": "沙巴节有效推广了婆罗洲独特的自然和文化遗产，将东马来西亚的旅游潜力转化为实际客流，分流了西马来西亚的旅游集中度。",
+    "source_url": "https://www.sabahtourism.com/",
+    "source_url_google": "https://www.google.com/search?q=沙巴节+Sabah+Fest+2026+8月29日+多元文化",
+    "key_figures": [
+      "8月29日启动为期一月",
+      "文化表演加生态旅游加美食"
+    ],
+    "travel_advisory": "沙巴旅游资源丰富建议安排5-7天深度游；8月天气适合登山和丛林探险。",
+    "tag": "pending",
+    "country": "马来西亚",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "周华健任贤齐演唱会8月登陆马来西亚 郭富城世界巡演同步开启",
+    "category": "文娱信息",
+    "sub_category": "文娱信息",
+    "summary": "2026年8月马来西亚迎来华语演唱会密集期。周华健（Eric Chou）和任贤齐（Richie Jen）分别将在马来西亚举办演唱会，郭富城（Aaron Kwok）ICONIC World Tour 2026世界巡演也同步在马来西亚设站。此外Hillsong Worship Nights在吉隆坡和亚庇（Kota Kinabalu）举行。配合MATTA Fair（9月4-6日）即将举办，音乐演出与旅游展会联动为马来西亚8月旅游增添亮点。",
+    "source": "马来西亚演出商协会",
+    "impact": "华语演唱会经济持续为马来西亚带来旅游增量，演唱会粉丝的跨境观演行为带动了住宿、餐饮和交通等关联消费。",
+    "source_url": "https://www.ticketpro.com.my/",
+    "source_url_google": "https://www.google.com/search?q=周华健+任贤齐+郭富城+马来西亚+演唱会+2026年8月",
+    "key_figures": [
+      "多位华语歌手8月开唱",
+      "Hillsong Worship吉隆坡加亚庇"
+    ],
+    "travel_advisory": "演唱会门票通过官方售票平台购买，注意防范黄牛票；吉隆坡演出场馆周边住宿建议提前预订。",
+    "tag": "pending",
+    "country": "马来西亚",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "新加坡F1展览亚洲首秀落户滨海湾花园 赛车文化席卷狮城",
+    "category": "文娱信息",
+    "sub_category": "文娱信息",
+    "summary": "一级方程式赛车（F1）主题展览于2026年8月首次在亚洲亮相，选址新加坡滨海湾花园。展览展示了F1赛车的历史、技术和传奇车手故事，包括多辆经典赛车的实物展出和模拟驾驶体验。配合新加坡大奖赛（预计10月举行）的预热活动，为赛车爱好者提供了近距离接触F1魅力的机会。该展览与Lilytopia百合花展同期举行，丰富了滨海湾花园的8月活动内容。",
+    "source": "滨海湾花园",
+    "impact": "F1展览亚洲首秀选址新加坡，进一步巩固了新加坡作为国际大型活动和展览首选目的地的地位，也为10月新加坡大奖赛预热造势。",
+    "source_url": "https://www.gardensbythebay.com.sg/",
+    "source_url_google": "https://www.google.com/search?q=新加坡+F1展览+亚洲首秀+滨海湾花园+2026",
+    "key_figures": [
+      "F1展览亚洲首秀",
+      "滨海湾花园8月展出"
+    ],
+    "travel_advisory": "F1展览可与百合花展一并参观，建议购买联票；10月新加坡大奖赛期间住宿紧张请提前预订。",
+    "tag": "pending",
+    "country": "新加坡",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  },
+  {
+    "title": "Visit Malaysia Year 2026-2027活动全面启动 Grab合作推五星美食导览",
+    "category": "旅游趋势",
+    "sub_category": "旅游趋势",
+    "summary": "马来西亚Visit Malaysia Year 2026-2027活动全面铺开，以多元文化体验和美食旅游为核心推广策略。Grab Malaysia推出Rakan Grab Jelajah Malaysia项目，联合本地餐饮商家发布五星美食指南，覆盖全国各州特色美食。万豪执行公寓推出Home in Malaysia计划，以现代马来西亚开放餐概念为住客提供沉浸式文化体验。活动旨在通过美食串联文化、代际和社区，展现马来西亚独特的多元魅力。",
+    "source": "马来西亚旅游局",
+    "impact": "Visit Malaysia活动与科技平台和酒店集团的跨界合作模式，为旅游推广提供了创新渠道，有望提升马来西亚作为美食旅游目的地的国际知名度。",
+    "source_url": "https://www.tourism.gov.my/",
+    "source_url_google": "https://www.google.com/search?q=Visit+Malaysia+2026+Grab+美食+万豪",
+    "key_figures": [
+      "Visit Malaysia 2026-2027",
+      "Grab五星美食指南",
+      "万豪Home in Malaysia计划"
+    ],
+    "travel_advisory": "关注Visit Malaysia 2026官方活动获取各类旅游优惠；Grab美食指南可帮助旅客发现地道本地美食。",
+    "tag": "pending",
+    "country": "马来西亚",
+    "consecutive_days": 1,
+    "tag_rank": 0
+  }
+]
