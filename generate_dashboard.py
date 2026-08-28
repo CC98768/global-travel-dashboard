@@ -121,7 +121,8 @@ renderCal();renderStats();renderChips();render();
 </html>'''
 
 def validate_and_fix(data):
-    VALID_SC = {"签证政策","航线交通","旅游推广","免签政策","经贸合作","文化交流"}
+    EXPECTED_SC = {"航线交通":2,"出入境政策":2,"本地生活":1,"旅游趋势":2,"景点活动":2,"文娱信息":1}
+    ALL_CATS = ["航线交通","出入境政策","本地生活","旅游趋势","景点活动","文娱信息"]
     fixes = 0
     for date_key, date_data in data.get("dates", {}).items():
         items = date_data.get("items", [])
@@ -129,11 +130,22 @@ def validate_and_fix(data):
         countries = sorted(set(i.get("country","") for i in items))
         for country in countries:
             citems = [i for i in items if i["country"] == country]
-            # Fix invalid sub_categories
+            sc = {}
             for i in citems:
-                if i["sub_category"] not in VALID_SC:
-                    i["sub_category"] = "旅游推广"
-                    fixes += 1
+                sc[i["sub_category"]] = sc.get(i["sub_category"], 0) + 1
+            if sc != EXPECTED_SC:
+                over = {k: v - EXPECTED_SC[k] for k, v in sc.items() if v > EXPECTED_SC.get(k, 0)}
+                under = {k: EXPECTED_SC[k] - sc.get(k, 0) for k in EXPECTED_SC if sc.get(k, 0) < EXPECTED_SC[k]}
+                for over_cat, over_count in over.items():
+                    for under_cat, uc in list(under.items()):
+                        if uc <= 0: continue
+                        changed = 0
+                        for i in citems:
+                            if i["sub_category"] == over_cat and changed < min(over_count, uc):
+                                i["sub_category"] = under_cat
+                                changed += 1
+                                fixes += 1
+                        under[under_cat] -= changed
             # Dynamic tag allocation: preserve global tags, only fix route_hot constraint
             route_hot = sum(1 for i in citems if i["sub_category"] == "航线交通" and i.get("tag") in ("爆","热"))
             if route_hot > 2:
