@@ -36,8 +36,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Micr
 .st.boom .v{color:#ef4444}.st.hot .v{color:#f97316}.st.new .v{color:#10b981}
 .si{width:100%;padding:8px 12px;border:1px solid var(--b);border-radius:8px;font-size:13px;outline:none;margin-bottom:10px}
 .si:focus{border-color:var(--p);box-shadow:0 0 0 3px rgba(37,99,235,.1)}
-.ch{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
-.cp{padding:5px 12px;border-radius:20px;border:1px solid var(--b);background:#fff;cursor:pointer;font-size:12px;transition:.15s;user-select:none}
+.ch{display:flex;gap:6px;margin-bottom:14px;overflow-x:auto;overflow-y:hidden;padding-bottom:6px;white-space:nowrap}
+.cp{padding:5px 12px;border-radius:20px;border:1px solid var(--b);background:#fff;cursor:pointer;font-size:12px;transition:.15s;user-select:none;flex-shrink:0;white-space:nowrap}
 .cp:hover{border-color:var(--p)}.cp.on{background:var(--pl);border-color:var(--p);color:var(--p);font-weight:600}
 .legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;padding:8px 12px;background:#f8fafc;border-radius:8px;border:1px solid var(--b)}
 .legend-item{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--t2)}
@@ -103,7 +103,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Micr
 <div class="mo" id="mo" onclick="if(event.target===this)closeModal()"><div class="mc"><div class="mt"><button class="mx" onclick="closeModal()">✕</button><div class="mrr"><div class="mr" id="mr"></div><div><div class="mct" id="mct"></div></div></div><div class="mtl" id="mtl"></div></div><div class="mb"><div class="ms"><div class="msl">📝 摘要</div><div class="msc" id="msum"></div></div><div class="ms"><div class="msl">📊 关键数据</div><div id="mkf"></div></div><div class="ms"><div class="msl">💡 影响分析</div><div class="mib" id="mimp"></div></div><div class="ms"><div class="msl">📌 出行提示</div><div class="ma info" id="madv"></div></div></div><div class="mf"><span id="msrc"></span><a id="msl" href="#" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:var(--bg);border-radius:8px;font-size:12px;color:#2932e1;text-decoration:none;border:1px solid var(--b)">🔗 百度搜索详情</a><a id="mgl" href="#" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:var(--bg);border-radius:8px;font-size:12px;color:#2932e1;text-decoration:none;border:1px solid var(--b)">🔍 Google搜索详情</a></div></div></div>
 <script>
 var ALL_DATA={{DATA_JSON}};var dates=Object.keys(ALL_DATA.dates).sort().reverse();var curDate=ALL_DATA.today||dates[0];
-var SC_MAP={'航线交通':{icon:'✈️',color:'#6366f1',bg:'#eef2ff'},'出入境政策':{icon:'📋',color:'#ec4899',bg:'#fdf2f8'},'本地生活':{icon:'🏙️',color:'#f59e0b',bg:'#fffbeb'},'旅游趋势':{icon:'📊',color:'#10b981',bg:'#ecfdf5'},'景点活动':{icon:'🏛️',color:'#3b82f6',bg:'#eff6ff'},'文娱信息':{icon:'🎭',color:'#8b5cf6',bg:'#f5f3ff'}};
+var SC_MAP={'签证政策':{icon:'📋',color:'#6366f1',bg:'#eef2ff'},'航线交通':{icon:'✈️',color:'#0ea5e9',bg:'#f0f9ff'},'旅游推广':{icon:'📊',color:'#10b981',bg:'#ecfdf5'},'免签政策':{icon:'🛂',color:'#f59e0b',bg:'#fffbeb'},'经贸合作':{icon:'🤝',color:'#8b5cf6',bg:'#f5f3ff'},'文化交流':{icon:'🎭',color:'#ec4899',bg:'#fdf2f8'},'出入境政策':{icon:'📋',color:'#6366f1',bg:'#eef2ff'},'本地生活':{icon:'🏙️',color:'#f59e0b',bg:'#fffbeb'},'旅游趋势':{icon:'📊',color:'#10b981',bg:'#ecfdf5'},'景点活动':{icon:'🏛️',color:'#3b82f6',bg:'#eff6ff'},'文娱信息':{icon:'🎭',color:'#8b5cf6',bg:'#f5f3ff'}};
 function getItems(d){return(ALL_DATA.dates[d]&&ALL_DATA.dates[d].items)||[]}
 function renderCal(){var h='',dow=['日','一','二','三','四','五','六'];dates.forEach(function(d){var dt=new Date(d+'T00:00:00'),n=getItems(d).length||ALL_DATA.dates[d].total_items||0,cls='cal-day'+(d===curDate?' active':'')+(d===dates[0]?' today':'');h+='<div class="'+cls+'" onclick="switchDate(\''+d+'\')"><div class="dow">周'+dow[dt.getDay()]+'</div><div class="dn">'+dt.getDate()+'日</div><div class="dc">'+n+'条</div></div>'});document.getElementById('calstrip').innerHTML=h}
 function switchDate(d){curDate=d;renderCal();renderStats();renderChips();render()}
@@ -112,7 +112,7 @@ function esc(s){var d=document.createElement('div');d.textContent=s;return d.inn
 function renderChips(){var items=getItems(curDate),cats=['全部'];items.forEach(function(i){var sc=i.sub_category||'旅游趋势';if(cats.indexOf(sc)<0)cats.push(sc)});var el=document.getElementById('chips');el.innerHTML='';cats.forEach(function(c){var b=document.createElement('span');b.className='cp'+(c==='全部'?' on':'');b.textContent=c;b.onclick=function(){document.querySelectorAll('.cp').forEach(function(x){x.classList.remove('on')});b.classList.add('on');render()};el.appendChild(b)});['爆','热','新','常规'].forEach(function(t){var b=document.createElement('span');b.className='cp';b.textContent=t;b.style.borderColor=t==='爆'?'#ef4444':t==='热'?'#f97316':t==='新'?'#10b981':'#64748b';b.onclick=function(){document.querySelectorAll('.cp').forEach(function(x){x.classList.remove('on')});b.classList.add('on');renderFiltered(getItems(curDate).filter(function(i){return i.tag===t}))};el.appendChild(b)})}
 function render(){var activeChip=document.querySelector('.cp.on'),curCat=activeChip?activeChip.textContent:'全部';renderFiltered(curCat==='全部'?getItems(curDate):getItems(curDate).filter(function(i){return(i.sub_category||'旅游趋势')===curCat}))}
 function renderFiltered(items){var q=(document.getElementById('si').value||'').toLowerCase();if(q)items=items.filter(function(i){return(i.title+' '+i.summary+' '+i.country+' '+i.source).toLowerCase().indexOf(q)>=0});var byC={};items.forEach(function(i){if(!byC[i.country])byC[i.country]=[];byC[i.country].push(i)});var h='',fM={'中国':'🇨🇳','日本':'🇯🇵','韩国':'🇰🇷','泰国':'🇹🇭','新加坡':'🇸🇬','越南':'🇻🇳','马来西亚':'🇲🇾','印度':'🇮🇳','菲律宾':'🇵🇭','法国':'🇫🇷','意大利':'🇮🇹','西班牙':'🇪🇸','英国':'🇬🇧','德国':'🇩🇪','希腊':'🇬🇷','土耳其':'🇹🇷','瑞士':'🇨🇭','俄罗斯':'🇷🇺','美国':'🇺🇸','加拿大':'🇨🇦','墨西哥':'🇲🇽','巴西':'🇧🇷','澳大利亚':'🇦🇺','新西兰':'🇳🇿','印度尼西亚':'🇮🇩'};Object.keys(byC).sort().forEach(function(c){var ev=byC[c],fl=fM[c]||'🌍';h+='<div class="cc"><div class="chd" onclick="this.parentElement.classList.toggle(\'open\')"><div class="left"><span class="cf">'+fl+'</span><span class="cn">'+esc(c)+'</span><span class="ct">'+ev.length+'条</span></div><span class="ar">▼</span></div><div class="cb">';ev.forEach(function(e){var rc=e.tag==='爆'?'r1':e.tag==='热'?'r2':e.tag==='新'?'rn':'r3',sc=e.sub_category||'旅游趋势',sm=SC_MAP[sc]||{icon:'',color:'#64748b',bg:'#f1f5f9'};var tc=e.tag==='爆'?'boom':e.tag==='热'?'hot':e.tag==='新'?'new':'normal';h+='<div class="ev" onclick="openModal('+items.indexOf(e)+',\''+curDate+'\')"><div class="ev-tag '+tc+'">'+esc(e.tag)+'</div><div class="er '+rc+'">'+sm.icon+'</div><div class="eb"><div class="et">'+esc(e.title)+(e.consecutive_days>=2?' <span style="color:#f97316;font-weight:600;font-size:11px">🔥'+e.consecutive_days+'天</span>':'')+'</div><div class="tg"><span class="tc tc-sc" style="background:'+sm.bg+';color:'+sm.color+'">'+sm.icon+' '+esc(sc)+'</span></div><div class="es">'+esc(e.summary)+'</div><div class="ei">💡 '+esc(e.impact)+'</div><div class="esr">📎 '+esc(e.source)+' ｜ 📌 '+esc(e.travel_advisory)+'</div></div></div>'});h+='</div></div>'});if(!items.length)h='<div style="text-align:center;padding:40px;color:var(--t3)">暂无匹配结果</div>';document.getElementById('clist').innerHTML=h}
-function openModal(idx,date){var items=getItems(date),e=items[idx];if(!e)return;var rc=e.tag==='爆'?'r1':e.tag==='热'?'r2':e.tag==='新'?'rn':'r3',sc=e.sub_category||'旅游趋势',sm=SC_MAP[sc]||{icon:'📰',color:'#64748b',bg:'#f1f5f9'};document.getElementById('mr').className='mr '+rc;document.getElementById('mr').textContent=e.tag;document.getElementById('mct').innerHTML='<span style="background:'+sm.bg+';color:'+sm.color+';padding:2px 8px;border-radius:10px;font-size:11px">'+sm.icon+' '+esc(sc)+'</span>';document.getElementById('mtl').textContent=e.title;document.getElementById('msum').textContent=e.summary;var kfArr=Array.isArray(e.key_figures)?e.key_figures:[e.key_figures||'暂无数据'];document.getElementById('mkf').innerHTML=kfArr.map(function(f){return'<div class="kf">'+esc(f)+'</div>'}).join('');document.getElementById('mimp').textContent=e.impact;document.getElementById('madv').innerHTML='📌 '+esc(e.travel_advisory);document.getElementById('msrc').innerHTML='📎 '+esc(e.source)+(e.consecutive_days>=2?' ｜ 🔥 <span style=\"color:#f97316;font-weight:600\">在榜'+e.consecutive_days+'天</span>':'');document.getElementById('msl').href=e.source_url||'#';document.getElementById('mgl').href='https://www.google.com/search?q='+encodeURIComponent(e.title);document.getElementById('mo').classList.add('show')}
+function openModal(idx,date){var items=getItems(date),e=items[idx];if(!e)return;var rc=e.tag==='爆'?'r1':e.tag==='热'?'r2':e.tag==='新'?'rn':'r3',sc=e.sub_category||'旅游趋势',sm=SC_MAP[sc]||{icon:'📰',color:'#64748b',bg:'#f1f5f9'};document.getElementById('mr').className='mr '+rc;document.getElementById('mr').textContent=e.tag;document.getElementById('mct').innerHTML='<span style="background:'+sm.bg+';color:'+sm.color+';padding:2px 8px;border-radius:10px;font-size:11px">'+sm.icon+' '+esc(sc)+'</span>';document.getElementById('mtl').textContent=e.title;document.getElementById('msum').textContent=e.summary;var kfArr=Array.isArray(e.key_figures)?e.key_figures:[e.key_figures||'暂无数据'];document.getElementById('mkf').innerHTML=kfArr.map(function(f){return'<div class="kf">'+esc(f)+'</div>'}).join('');document.getElementById('mimp').textContent=e.impact;document.getElementById('madv').innerHTML='📌 '+esc(e.travel_advisory);document.getElementById('msrc').innerHTML='📎 '+esc(e.source)+(e.consecutive_days>=2?' ｜ 🔥 <span style=\"color:#f97316;font-weight:600\">在榜'+e.consecutive_days+'天</span>':'');document.getElementById('msl').href='https://www.baidu.com/s?wd='+encodeURIComponent(e.title);document.getElementById('mgl').href='https://www.google.com/search?q='+encodeURIComponent(e.title);document.getElementById('mo').classList.add('show')}
 function closeModal(){document.getElementById('mo').classList.remove('show')}
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal()});
 renderCal();renderStats();renderChips();render();
@@ -121,8 +121,7 @@ renderCal();renderStats();renderChips();render();
 </html>'''
 
 def validate_and_fix(data):
-    EXPECTED_SC = {"航线交通":2,"出入境政策":2,"本地生活":1,"旅游趋势":2,"景点活动":2,"文娱信息":1}
-    ALL_CATS = ["航线交通","出入境政策","本地生活","旅游趋势","景点活动","文娱信息"]
+    VALID_SC = {"签证政策","航线交通","旅游推广","免签政策","经贸合作","文化交流","出入境政策","本地生活","旅游趋势","景点活动","文娱信息"}
     fixes = 0
     for date_key, date_data in data.get("dates", {}).items():
         items = date_data.get("items", [])
@@ -130,22 +129,11 @@ def validate_and_fix(data):
         countries = sorted(set(i.get("country","") for i in items))
         for country in countries:
             citems = [i for i in items if i["country"] == country]
-            sc = {}
+            # Fix invalid sub_categories
             for i in citems:
-                sc[i["sub_category"]] = sc.get(i["sub_category"], 0) + 1
-            if sc != EXPECTED_SC:
-                over = {k: v - EXPECTED_SC[k] for k, v in sc.items() if v > EXPECTED_SC.get(k, 0)}
-                under = {k: EXPECTED_SC[k] - sc.get(k, 0) for k in EXPECTED_SC if sc.get(k, 0) < EXPECTED_SC[k]}
-                for over_cat, over_count in over.items():
-                    for under_cat, uc in list(under.items()):
-                        if uc <= 0: continue
-                        changed = 0
-                        for i in citems:
-                            if i["sub_category"] == over_cat and changed < min(over_count, uc):
-                                i["sub_category"] = under_cat
-                                changed += 1
-                                fixes += 1
-                        under[under_cat] -= changed
+                if i["sub_category"] not in VALID_SC:
+                    i["sub_category"] = "旅游推广"
+                    fixes += 1
             # Dynamic tag allocation: preserve global tags, only fix route_hot constraint
             route_hot = sum(1 for i in citems if i["sub_category"] == "航线交通" and i.get("tag") in ("爆","热"))
             if route_hot > 2:
